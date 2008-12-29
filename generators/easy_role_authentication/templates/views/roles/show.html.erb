@@ -1,0 +1,7 @@
+<h1><%%= t("roles.show.title", :name => @role.name) %%></h1>
+<h3><%%= t("roles.assigned_rights") %%></h3>
+<ul>
+  <%% for right in @role.rights -%%>
+
+  <%% end -%%>
+</ul>
