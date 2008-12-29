@@ -1,4 +1,4 @@
-class EasyRoleAuthenticationGenerator < Rails::Generator::NameBase
+class EasyRoleAuthenticationGenerator < Rails::Generator::NamedBase
 
   default_options :skip_migration => false, :use_easy_contacts => false
 
