@@ -1,0 +1,108 @@
+<style type="text/css" media="screen">
+
+  a {
+    color: #f00;
+  }
+
+  body {
+    background: #F9F9F9;
+    background-image: none;
+    font-family: helvetica, arial, clean, sans-serif;
+    font-size: 14px;
+  }
+
+  form {
+    margin: 7em auto;
+    text-align: center;
+    width: 325px;
+  }
+
+  hr {
+    border: none;
+    border-bottom: #ccc dotted 1px;
+    height: 0;
+  }
+
+  input[type=text],
+  input[type=password] {
+    font-size: 24px;
+    width: 99%;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  #login_form {
+    background-color: #fff;
+    padding: 15px;
+    text-align: left;
+  }
+
+  #login_button {
+    float: right;
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  /* Shadow Effect */
+  .shadow {
+    margin-left: 3px;
+    margin-top: 3px;
+  }
+
+  .shadow .shadow1,
+  .shadow .shadow2,
+  .shadow .shadow3,
+  .sadow .container {
+    position: relative;
+    left: -1px;
+    top: -1px;
+  }
+
+  .shadow1 {
+    background-color: #c9c9c9;
+  }
+
+  .shadow2 {
+    background-color: #b0b0b0;
+  }
+
+  .shadow3 {
+    background-color: #a9a9a9;
+  }
+
+</style>
+
+<%% content_for :header do %>
+  <%%= stylesheet_link_tag 'sessions/new' %>
+<%% end %>
+
+<%% form_tag sessions_url do -%>
+  <div class="shadow">
+    <div class="shadow1">
+      <div class="shadow2">
+        <div class="shadow3">
+          <div id="login_form" class="container">
+            <p>
+              <%%= label_tag t("sessions.new.login") %><br />
+              <%%= text_field_tag 'login', @login %>
+            </p>
+            <p>
+              <%%= label_tag t("sessions.new.password") %><br/>
+              <%%= password_field_tag 'password', nil %>
+            </p>
+            <p>
+              <%%= submit_tag t("sessions.new.login_button"), :id => "login_button" %>
+              <%%= check_box_tag "remember_me", "1", @remember_me %>
+              <span><%%= t("sessions.new.remember_me") %></span>
+            </p>
+            <hr />
+            <p><%%= link_to t("sessions.new.recover_password"), home_path %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<%% end -%>

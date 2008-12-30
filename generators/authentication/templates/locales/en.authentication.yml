@@ -1,0 +1,44 @@
+en:
+  # Views by controller
+  sessions:
+    flash:
+      login: "Welcome {{full_name}}."
+      logout: "Your session has been closed."
+      error: "User or password incorrect."
+    new:
+      login: "User"
+      password: "Password"
+      login_button: "Login"
+      remember_me: "Remember me"
+      recover_password: "Forgot your password?"
+  users:
+    flash:
+      create: "User created."
+      update: "User updated."
+    index:
+      title: "Users"
+    edit:
+      title: "Change Password \"{{login}}\""
+      cancel: "Cancel"
+    new:
+      cancel: "Cancel"
+      title: "New User"
+      login_comment: "(Eg: username)"
+      password_comment: "6 caracteres mínimum"
+    show:
+      edit: "Change Password"
+      login: "User"
+      back: "Back"
+      password_section:
+        edit_link: "Change password"
+      user_details:
+        title: "Contact Data"
+        edit_link: "Edit"
+      roles_section:
+        title: "Roles for this user"
+        edit_link: "Edit"
+  user_roles:
+    flash:
+      update: "User roles updated."
+    edit:
+      title: "Assign roles to \"{{login}}\""

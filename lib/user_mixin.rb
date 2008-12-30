@@ -11,9 +11,6 @@ module EasyRoleAuthentication
         # Virtual attribute for the unencrypted password
         attr_accessor :password
 
-        has_one :person
-        validates_associated :person
-
         has_and_belongs_to_many :roles
 
         validates_length_of :login,:minimum => 4
@@ -29,8 +26,8 @@ module EasyRoleAuthentication
 
         # prevents a user from submitting a crafted form that bypasses activation
         # anything else you want your user to change should be added here.
-        attr_accessible :login, :password, :password_confirmation, :person_attributes,
-          :role_ids, :full_name
+        attr_accessible :login, :password, :password_confirmation,
+          :role_ids, :full_name, :name, :last_name
 
       end
     end
@@ -51,10 +48,6 @@ module EasyRoleAuthentication
     end # EasyAuthentication::User::ClassMethods
 
     module InstanceMethods
-
-      def person_attributes=(person_attributes)
-        self.person = Person.new(person_attributes)
-      end
 
       def to_param
         self.login

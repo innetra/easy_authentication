@@ -1,0 +1,57 @@
+"es-MX":
+  # Models
+  activerecord:
+    models:
+      user: "Usuario"
+    attributes:
+      user:
+        login: "Nombre usuario"
+        password: "Contraseña"
+        password_confirmation: "Confirmación contraseña"
+        email: "Correo Electrónico"
+        enabled: "Habilitado"
+        first_name: "Nombre(s)"
+        last_name: "Apellidos"
+  # Views by controller
+  sessions:
+    flash:
+      login: "Bienvenido {{full_name}}"
+      logout: "Su sessión ha sido cerrada"
+      error: "Usuario o contraseña incorrectos"
+    new:
+      login: "Usuario"
+      password: "Contraseña"
+      login_button: "Ingresar"
+      remember_me: "Recordar contraseña"
+      recover_password: "¿Olvidó su contraseña?"
+  users:
+    flash:
+      create: "Usuario creado."
+      update: "Usuario actualizado."
+    index:
+      title: "Usuarios Registrados"
+    edit:
+      title: "Cambiar contraseña \"{{login}}\""
+      cancel: "Cancelar"
+    new:
+      cancel: "Cancelar"
+      title: "Nuevo Usuario"
+      login_comment: "(Ejemplo: nombreusuario)"
+      password_comment: "Mínimo 6 caracteres"
+    show:
+      edit: "Cambiar Contraseña"
+      login: "Usuario"
+      back: "Regresar"
+      password_section:
+        edit_link: "Cambiar contraseña"
+      user_details:
+        title: "Datos Contacto"
+        edit_link: "Editar"
+      roles_section:
+        title: "Roles de este usuario"
+        edit_link: "Editar"
+  user_roles:
+    flash:
+      update: "Roles del usuario actualizados"
+    edit:
+      title: "Asignar roles a \"{{login}}\""
