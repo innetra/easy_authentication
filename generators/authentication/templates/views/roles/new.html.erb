@@ -1,4 +1,9 @@
-<h1><%%= t("roles.new.title") %></h1>
+<h1>
+  <div class="title_actions">
+    <%%= link_to t("forms.cancel"), roles_url %>
+  </div>
+  <%%= t("roles.new.title") %>
+</h1>
 
 <%% form_for @role do |form| %>
   <%%= render :partial => form %>

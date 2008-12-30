@@ -1,4 +1,4 @@
-require 'digest/sha1'
+require "digest/sha1"
 class AuthenticationGenerator < Rails::Generator::Base
 
   default_options :use_easy_contacts => false
@@ -6,29 +6,42 @@ class AuthenticationGenerator < Rails::Generator::Base
   def manifest
     record do |m|
 
-       # Controllers
-       controllers.each do |controller_name|
-         m.template "controllers/#{controller_name}_controller.rb",
-          File.join('app/controllers', "#{controller_name}_controller.rb")
-         m.directory(File.join('app/views', controller_name))
-       end
+      # Controllers
+      controllers.each do |controller_name|
+        m.template "controllers/#{controller_name}_controller.rb",
+          File.join("app/controllers", "#{controller_name}_controller.rb")
+        m.directory(File.join("app/views", controller_name))
+      end
 
-       # Views
-       views.each do |view_name|
-         m.template "views/#{view_name}.html.erb",
-          File.join('app/views', "#{view_name}.html.erb")
-       end
+      # Helpers
+      helpers.each do |helper_name|
+        m.template "helpers/#{helper_name}_helper.rb",
+          File.join("app/helpers", "#{helper_name}_helper.rb")
+      end
 
-       # Stylesheets
-       m.directory('public/stylesheets/sessions')
-       stylesheets.each do |stylesheet_name|
-         m.template "stylesheets/#{stylesheet_name}.css",
-          File.join('public/stylesheets', "#{stylesheet_name}.css")
-       end
+      # Views
+      views.each do |view_name|
+        m.template "views/#{view_name}.html.erb",
+          File.join("app/views", "#{view_name}.html.erb")
+      end
 
       # Sessions Layout
-      # m.template "layouts/sessions.erb",
-      #   "app/views/layouts/sessions.erb"
+      unless options[:skip_layouts]
+        m.directory("app/views/layouts")
+        layouts.each do |layout_name|
+          m.template "layouts/#{layout_name}.erb",
+            File.join("app/views/layouts", "#{layout_name}.erb")
+        end
+      end
+
+      # Stylesheets
+      unless options[:skip_css]
+        m.directory("public/stylesheets/sessions")
+        stylesheets.each do |stylesheet_name|
+          m.template "stylesheets/#{stylesheet_name}.css",
+            File.join("public/stylesheets", "#{stylesheet_name}.css")
+        end
+      end
 
       # Migrations
       m.migration_template "migrations/authentications.rb", "db/migrate",
@@ -38,7 +51,7 @@ class AuthenticationGenerator < Rails::Generator::Base
       # Models
       models.each do |model_name|
         m.template "models/#{model_name}.rb",
-          File.join('app/models', "#{model_name}.rb")
+          File.join("app/models", "#{model_name}.rb")
       end
 
       # Site Keys
@@ -62,7 +75,7 @@ class AuthenticationGenerator < Rails::Generator::Base
   protected
 
     def secure_digest(*args)
-      Digest::SHA1.hexdigest(args.flatten.join('--'))
+      Digest::SHA1.hexdigest(args.flatten.join("--"))
     end
 
     def make_token
@@ -73,13 +86,21 @@ class AuthenticationGenerator < Rails::Generator::Base
       %w[ roles sessions user_roles users ]
     end
 
+    def helpers
+      %w[ form shadowbox ]
+    end
+
     def views
       %w[ roles/edit roles/_form roles/index roles/new roles/show sessions/new
         user_roles/edit users/edit users/index users/new users/show users/_user ]
     end
 
+    def layouts
+      %w[ authentication sessions ]
+    end
+
     def stylesheets
-      %w[ users ]
+      %w[ default elements layout navigation template print sessions users ]
     end
 
     def migrations
@@ -95,10 +116,14 @@ class AuthenticationGenerator < Rails::Generator::Base
     end
 
     def add_options!(opt)
-      opt.separator ''
-      opt.separator 'Options:'
+      opt.separator ""
+      opt.separator "Options:"
       opt.on("--use-easy-contacts",
-        "Don't generate a migration file for models") { |v| options[:use_easy_contacts] = v }
+        "Use easy_contacts gem for user's contact data (http://github.com/innetra/easy_contacts)") { |v| options[:use_easy_contacts] = v }
+      opt.on("--skip-layouts",
+        "Don't generate the authentication layout for views (I'll user my own)") { |v| options[:skip_layouts] = v }
+      opt.on("--skip-css",
+        "Don't generate css files for views (I'll user my own)") { |v| options[:skip_css] = v }
     end
 
 end

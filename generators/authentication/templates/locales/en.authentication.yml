@@ -1,5 +1,25 @@
 en:
   # Views by controller
+  forms:
+    save: "Save"
+    cancel: "Cancel"
+    update: "Update"
+  roles:
+    flash:
+      create: "User role created."
+      update: "User role updated."
+    assigned_rights: "Assigned Rights"
+    edit:
+      title: "Edit User Role \"{{name}}\""
+    index:
+      title: "User Roles"
+      new_role_link: "New user role"
+    new:
+      title: "New User Role"
+    show:
+      title: "User Role \"{{name}}\""
+      edit_link: "Edit"
+      back_link: "Back"
   sessions:
     flash:
       login: "Welcome {{full_name}}."
@@ -12,11 +32,15 @@ en:
       remember_me: "Remember me"
       recover_password: "Forgot your password?"
   users:
+    actions:
+      change_password_link: "Change Password"
+      logout_link: "Logout"
     flash:
       create: "User created."
       update: "User updated."
     index:
       title: "Users"
+      new_link: "Add new user"
     edit:
       title: "Change Password \"{{login}}\""
       cancel: "Cancel"
@@ -34,6 +58,8 @@ en:
       user_details:
         title: "Contact Data"
         edit_link: "Edit"
+        login: "Login"
+        email: "Email"
       roles_section:
         title: "Roles for this user"
         edit_link: "Edit"

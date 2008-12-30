@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+<% unless options[:skip_layouts] -%>
+  layout "authentication"
+<% end -%>
+
   def index
     @users = User.all(:order => :login)
 
@@ -20,8 +24,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+<% if default_options[:use_easy_contacts] -%>
     @user.person = Person.new
     @user.person.emails << Email.new
+<% end -%>
 
     respond_to do |format|
       format.html # new.html.erb

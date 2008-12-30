@@ -12,7 +12,28 @@
         enabled: "Habilitado"
         first_name: "Nombre(s)"
         last_name: "Apellidos"
+  # General forms translations
+  forms:
+    save: "Guardar"
+    cancel: "Cancelar"
+    update: "Actualizar"
   # Views by controller
+  roles:
+    flash:
+      create: "Rol de usuario creado"
+      update: "Rol de usuario actualizado"
+    assigned_rights: "Roles Asignados"
+    edit:
+      title: "Editar Rol de Usuario \"{{name}}\""
+    index:
+      title: "Roles de Usuario"
+      new_role_link: "Crear nuevo rol de usuario"
+    new:
+      title: "Nuevo Rol de Usuario"
+    show:
+      title: "Rol de Usuario \"{{name}}\""
+      edit_link: "Editar"
+      back_link: "Regresar"
   sessions:
     flash:
       login: "Bienvenido {{full_name}}"
@@ -25,11 +46,15 @@
       remember_me: "Recordar contraseña"
       recover_password: "¿Olvidó su contraseña?"
   users:
+    actions:
+      change_password_link: "Cambiar Contraseña"
+      logout_link: "Cerrar Sesión"
     flash:
       create: "Usuario creado."
       update: "Usuario actualizado."
     index:
       title: "Usuarios Registrados"
+      new_link: "Registrar nuevo usuario"
     edit:
       title: "Cambiar contraseña \"{{login}}\""
       cancel: "Cancelar"
@@ -47,6 +72,8 @@
       user_details:
         title: "Datos Contacto"
         edit_link: "Editar"
+        login: "Usuario"
+        email: "Email"
       roles_section:
         title: "Roles de este usuario"
         edit_link: "Editar"

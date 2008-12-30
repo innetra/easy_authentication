@@ -2,6 +2,12 @@
   <%%= stylesheet_link_tag "users/index", :media => :all %>
 <%% end -%>
 
+<%% content_for :sidebar do -%>
+  <%% shadowbox "users_actions", :class => "sidebar_section" do %>
+    <%%= link_to t("users.index.new_link"), new_user_url %>
+  <%% end %>
+<%% end -%>
+
 <h1><%%= t "users.index.title" %></h1>
 
 <ul>

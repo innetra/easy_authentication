@@ -1,5 +1,5 @@
 <%% content_for :sidebar do -%>
-  <%% sidebar_section "user_details" do %>
+  <%% shadowbox "user_details", :class => "sidebar_section" do %>
     <h1>
 <% if options[:use_easy_contacts] -%>
       <div class="title_actions">
@@ -10,11 +10,11 @@
     </h1>
     <table>
       <tr>
-        <td class="label"><%%= t("activerecord.attributes.user.login") %></td>
+        <td class="label"><%%= t("users.show.user_details.login") %></td>
         <td><%%= @user.login %></td>
       </tr>
       <tr>
-        <td class="label"><%%= t("activerecord.attributes.email.address") %></td>
+        <td class="label"><%%= t("users.show.user_details.email") %></td>
 <% if options[:use_easy_contacts] -%>
         <td><%%= auto_link @user.person.emails.first.address %></td>
 <% else -%>
@@ -23,18 +23,18 @@
       </tr>
     </table>
   <%% end %>
-  <%% sidebar_section "password_section" do %>
+  <%% shadowbox "password_section", :class => "sidebar_section" do %>
     <%%= link_to t("users.show.password_section.edit_link"), edit_user_url(@user) %>
   <%% end %>
 
-  <%% sidebar_section "roles_section" do %>
+  <%% shadowbox "roles_section", :class => "sidebar_section" do %>
+    <h1>
+      <div class="title_actions">
+        <%%= link_to t("users.show.roles_section.edit_link"), edit_user_role_url(@user) %>
+      </div>
+      <%%= t("users.show.roles_section.title") %>
+    </h1>
     <%% unless @user.roles.blank? -%>
-      <h1>
-        <div class="title_actions">
-          <%%= link_to t("users.show.roles_section.edit_link"), edit_user_role_url(@user) %>
-        </div>
-        <%%= t("users.show.roles_section.title") %>
-      </h1>
       <ul>
         <%% for role in @user.roles -%>
           <%% content_tag_for(:li, role) do -%>

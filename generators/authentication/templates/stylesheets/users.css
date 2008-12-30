@@ -1,16 +1,10 @@
-<% if default_options[:use_easy_contacts] %>
-#user_person_attributes_name,
-#user_person_attributes_last_name {
-  font-size: 20px;
-  font-weight: bold;
-}
-<% else %>
+
 #user_name,
 #user_last_name {
   font-size: 20px;
   font-weight: bold;
 }
-<% end %>
+
 
 .security_user {
   padding: 10px 0;

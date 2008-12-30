@@ -13,11 +13,16 @@ namespace :authentication do
       Role.create!(:name => "sysadmin",
         :right_ids => right_ids)
 
-      User.create!(:login => "sysadmin",
-        :password => "monkey",
-        :password_confirmation => "monkey",
-        :email => "sysadmin@innetra.com",
-        :role_ids => [1])
+      if !defined?(Person)
+        User.create!(:name => "System",
+          :last_name => "Administrator",
+          :login => "sysadmin",
+          :password => "monkey",
+          :password_confirmation => "monkey",
+          :email => "sysadmin@innetra.com",
+          :role_ids => [1])
+      else
+      end
 
     end
 

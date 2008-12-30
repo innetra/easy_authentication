@@ -1,5 +1,9 @@
 class RolesController < ApplicationController
 
+<% unless options[:skip_layouts] -%>
+  layout "authentication"
+<% end -%>
+
   def index
     @roles = Role.all
 

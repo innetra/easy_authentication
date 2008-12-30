@@ -1,13 +1,17 @@
 class UserRolesController < ApplicationController
 
+<% unless options[:skip_layouts] -%>
+  layout "authentication"
+<% end -%>
+
   before_filter :load_roles
 
   def edit
-    @user = UserRole.find_by_login(params[:id])
+    @user = User.find_by_login(params[:id])
   end
 
   def update
-    @user = UserRole.find_by_login(params[:id])
+    @user = User.find_by_login(params[:id])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

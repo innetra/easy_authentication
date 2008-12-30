@@ -1,4 +1,10 @@
-<h1><%%= t("roles.show.title", :name => @role.name) %></h1>
+<h1>
+  <div class="title_actions">
+    <%%= link_to t("roles.show.edit_link"), edit_role_url(@role) %>&nbsp;|
+    <%%= link_to t("roles.show.back_link"), roles_url %>
+  </div>
+  <%%= t("roles.show.title", :name => @role.name) %>
+</h1>
 <h3><%%= t("roles.assigned_rights") %></h3>
 <ul>
   <%% for right in @role.rights -%>
