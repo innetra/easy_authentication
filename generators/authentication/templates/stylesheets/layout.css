@@ -1,0 +1,55 @@
+body, html {
+  margin: 0 15px;
+  min-width: 800px;
+  padding: 0;
+}
+
+#layout {
+  margin: 0;
+  width: 100%;
+}
+
+#layout tr {
+  clear: both;
+}
+
+#head {
+  height: 30px;
+}
+
+#navigation_bar {
+  height: 50px;
+}
+
+/* Content */
+#content > td {
+  padding-top: 20px;
+}
+
+/* Page */
+#page {
+
+}
+
+#page_content {
+  min-height: 100px;
+}
+
+.container {
+  background-color: #fff;
+  border: 3px solid;
+  padding: 5px;
+}
+
+/* Sidebar */
+#sidebar {
+  padding-left: 10px;
+  width: 30%;
+}
+
+
+
+#logo .container {
+  text-align: center;
+  padding: 15px 10px 10px 10px;
+}

@@ -1,0 +1,83 @@
+ul.navigation,
+.navigation ul {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+
+
+.navigation li {
+  float: left;
+  list-style: none;
+}
+
+.navigation a {
+  display: block;
+  line-height: 15px;
+  text-decoration: none;
+}
+
+/* Tabs */
+.navigation .tab > a {
+  margin: 0 5px 0 0;
+  padding: 5px;
+  font-weight: bold;
+}
+
+
+.navigation li.tab ul {
+  display: none;
+  left: 0;
+  position: absolute;
+  clear: left;
+  width: 100%;
+}
+
+.navigation li.tab.current ul {
+  display: block;
+}
+
+.navigation li.tab ul:first {
+  clear: left;
+}
+
+.navigation:hover > li.tab.current ul {
+  display: none;
+}
+
+.navigation > li.tab.current:hover ul {
+  display: block;
+}
+
+.navigation li.tab:hover  {
+}
+
+.navigation li.tab:hover ul {
+  display: block;  
+}
+
+/* Menus */
+
+.navigation li.menu {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li.menu li {
+  float: left;
+}
+
+.navigation li.menu a {
+  display: block;
+  line-height: 30px;
+  padding: 0 5px;
+}
+
+.navigation .tab.current > a,
+.navigation .menu.current a {
+  color: #fff;  
+  font-weight: bold;
+}
+

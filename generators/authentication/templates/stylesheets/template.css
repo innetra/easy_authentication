@@ -1,0 +1,104 @@
+a {
+  color: #4183c4;
+}
+
+h1 a,
+a.red {
+  color: #f00;
+}
+
+body {
+  background: #F9F9F9 url(/images/header_bg.png) repeat-x;
+  color: #333;
+}
+
+/* Shadows */
+.shadow1 {
+  background-color: #c9c9c9;
+}
+
+.shadow2 {
+  background-color: #b0b0b0;
+}
+
+.shadow3 {
+  background-color: #a9a9a9;
+}
+
+/* Page */
+.container {
+  border-color: #ddd;
+}
+
+/* Page Title */
+h1 {
+  background-color: #E8F0F3;
+}
+
+/* Inline Form */
+fieldset {
+  background-color: #eee;
+}
+
+/* Header */
+#header {
+}
+
+/* Navigation */
+.navigation .tab > a {
+  color: #000;
+  background: #E8F0F3;
+  border: solid #bbd3dc;
+  border-width: 1px 1px 0 1px;
+}
+
+.navigation .tab.current > a {
+  border-color: #818181;;
+}
+
+.navigation .tab.current > a {
+  background-color: #818181;
+  background-image: none;
+  border-color: #818181;
+  color: #fff;
+}
+
+.navigation li.tab.current a,
+.navigation li.menu a {
+  color: #E8F0F3;
+}
+
+.navigation li.separator {
+  color: #000;
+  line-height: 24px;
+}
+
+/* Sidebar */
+.container.sidebar_section {
+  background-color: #E8F0F3;
+}
+
+.sidebar_section h1 {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Form */
+.comment {
+  color: #999;
+}
+
+.required {
+  color: #f00;
+}
+
+.flash {
+  background-color: #FFFFE0;
+  border-color: #ffa82a;
+  color: #ff9d0d;
+}
+
+.flash.error {
+  background-color: #FFFFE0;
+  border-color: #f00;
+  color: #f00;
+}
