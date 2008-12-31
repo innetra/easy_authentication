@@ -56,7 +56,7 @@
       title: "Usuarios Registrados"
       new_link: "Registrar nuevo usuario"
     edit:
-      title: "Cambiar contraseña \"{{login}}\""
+      title: "Editar \"{{full_name}}\" ({{login}})"
       cancel: "Cancelar"
     new:
       cancel: "Cancelar"
@@ -70,12 +70,12 @@
       password_section:
         edit_link: "Cambiar contraseña"
       user_details:
-        title: "Datos Contacto"
+        title: "Datos del usuario"
         edit_link: "Editar"
         login: "Usuario"
         email: "Email"
       roles_section:
-        title: "Roles de este usuario"
+        title: "Roles del usuario"
         edit_link: "Editar"
   user_roles:
     flash:

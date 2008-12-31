@@ -100,7 +100,7 @@ class AuthenticationGenerator < Rails::Generator::Base
     end
 
     def stylesheets
-      %w[ default elements layout navigation template print sessions users ]
+      %w[ default elements layout navigation template print roles sessions users ]
     end
 
     def migrations

@@ -2,11 +2,17 @@
   <div class="title_actions">
     <%%= link_to t("users.edit.cancel"), @user %>
   </div>
-  <%%= t("users.edit.title", :login => @user.login) %>
+  <%%= t("users.edit.title", :full_name => @user.full_name, :login => @user.login) %>
 </h1>
 
 <%% form_for @user do |form| %>
   <%%= error_messages_for :user %>
+  <p>
+    <%%= form.label :email %>
+    <%%= required_field %><br />
+    <%%= form.text_field :email %>
+  </p>
+  <hr />
   <p>
     <%%= form.label :password %>
     <%%= required_field %><br />
@@ -20,6 +26,6 @@
   <hr />
   <p>
     <%%= submit_tag t("forms.save") %>&nbsp;ó
-    <%%= link_to t("forms.cancel"), users_url, :class => :red %>
+    <%%= link_to t("forms.cancel"), @user, :class => :red %>
   </p>
 <%% end %>

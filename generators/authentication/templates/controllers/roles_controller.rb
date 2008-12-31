@@ -4,6 +4,8 @@ class RolesController < ApplicationController
   layout "authentication"
 <% end -%>
 
+  before_filter :fetch_right_groups, :only => [:new, :edit]
+
   def index
     @roles = Role.all
 
@@ -15,7 +17,6 @@ class RolesController < ApplicationController
 
   def new
     @role = Role.new
-    @right_groups = Right.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class RolesController < ApplicationController
 
   def show
     @role = Role.find_by_id(params[:id])
+    @right_groups = @role.rights.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,7 +52,6 @@ class RolesController < ApplicationController
 
   def edit
     @role = Role.find_by_id(params[:id])
-    @right_groups = Right.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }
   end
 
   def update
@@ -69,10 +70,10 @@ class RolesController < ApplicationController
     end
   end
 
-  def assign
-    @user = User.find_by_login(params[:user_id])
-    @roles = Role.all
-  end
+  protected
 
+  def fetch_right_groups
+    @right_groups = Right.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }
+  end
 
 end

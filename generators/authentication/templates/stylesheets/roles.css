@@ -1,0 +1,19 @@
+table.role {
+  width: 97%;
+}
+
+table.role td {
+  padding: 10px;
+  padding-bottom: 20px;
+  padding-top: 0px;
+}
+
+table.role.list li {
+  list-style-type: disc;
+}
+
+.rights {
+  min-width: 80px;
+  border: 1px dotted #ccc;
+  background-color: #f5f5f5;
+}
