@@ -44,9 +44,12 @@ class AuthenticationGenerator < Rails::Generator::Base
       end
 
       # Migrations
-      m.migration_template "migrations/authentications.rb", "db/migrate",
-        :assigns => { :migration_name => "CreateAuthentications" },
-        :migration_file_name => "create_authentications"
+      unless options[:skip_migrations]
+        m.migration_template "migrations/authentications.rb", "db/migrate",
+          :assigns => { :migration_name => "CreateAuthentications" },
+          :migration_file_name => "create_authentications"
+        end
+      end
 
       # Models
       models.each do |model_name|
@@ -118,12 +121,12 @@ class AuthenticationGenerator < Rails::Generator::Base
     def add_options!(opt)
       opt.separator ""
       opt.separator "Options:"
-      opt.on("--use-easy-contacts",
-        "Use easy_contacts gem for user's contact data (http://github.com/innetra/easy_contacts)") { |v| options[:use_easy_contacts] = v }
       opt.on("--skip-layouts",
         "Don't generate the authentication layout for views (I'll user my own)") { |v| options[:skip_layouts] = v }
       opt.on("--skip-css",
         "Don't generate css files for views (I'll user my own)") { |v| options[:skip_css] = v }
+      opt.on("--skip-migrations",
+        "Don't generate migrations") { |v| options[:skip_migrations] = v }
     end
 
 end
