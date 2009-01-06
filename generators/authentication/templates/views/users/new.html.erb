@@ -11,54 +11,26 @@
 
 <%% form_for @user do |form| %>
   <%%= error_messages_for :user %>
-<% if options[:use_easy_contacts] -%>
-  <%% fields_for "user[person_attributes]", @user.person do |person| -%>
-    <table>
-      <tr>
-        <td>
-          <%%= person.label :name %>
-          <%%= required_field %><br />
-          <%%= person.text_field :name %>
-        </td>
-        <td>
-          <%%= person.label :last_name %>
-          <%%= required_field %><br />
-          <%%= person.text_field :last_name %>
-        </td>
-      </tr>
-    </table>
-  <%% end -%>
+  <table>
+    <tr>
+      <td>
+        <%%= form.label :first_name %>
+        <%%= required_field %><br />
+        <%%= form.text_field :first_name %>
+      </td>
+      <td>
+        <%%= form.label :last_name %>
+        <%%= required_field %><br />
+        <%%= form.text_field :last_name %>
+      </td>
+    </tr>
+  <table>
   <hr />
-  <%% fields_for "user[person_attributes][email_attributes][]", @user.person.emails.first do |email| -%>
-    <p>
-      <%%= email.label :address %>
-      <%%= required_field %><br />
-      <%%= email.text_field :address %><br />
-      <span class="comment"><%%= t "users.new.email_comment" %></span>
-    </p>
-  <%% end -%>
-<% else -%>
-    <table>
-      <tr>
-        <td>
-          <%%= form.label :name %>
-          <%%= required_field %><br />
-          <%%= form.text_field :name %>
-        </td>
-        <td>
-          <%%= form.label :last_name %>
-          <%%= required_field %><br />
-          <%%= form.text_field :last_name %>
-        </td>
-      </tr>
-    <table>
-    <hr />
-    <p>
-      <%%= form.label :email %>
-      <%%= required_field %><br />
-      <%%= form.text_field :email %>
-    </p>
-<% end -%>
+  <p>
+    <%%= form.label :email %>
+    <%%= required_field %><br />
+    <%%= form.text_field :email %>
+  </p>
   <hr />
   <p>
     <%%= form.label :login %>

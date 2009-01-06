@@ -27,17 +27,15 @@ class CreateAuthentications < ActiveRecord::Migration
     end
 
     create_table :users do |t|
+      t.string :first_name
+      t.string :last_name
+      t.string :email
       t.string :login
       t.string :password_hash, :null => false
       t.string :password_salt, :null => false
       t.string :remember_token, :limit => 40
       t.datetime :remember_token_expires_at
       t.boolean :enabled, :default => false
-<% unless default_options[:use_easy_contacts] -%>
-      t.string :name
-      t.string :last_name
-      t.string :email
-<% end -%>
 
       t.timestamps
     end

@@ -7,6 +7,21 @@
 
 <%% form_for @user do |form| %>
   <%%= error_messages_for :user %>
+  <table>
+    <tr>
+      <td>
+        <%%= form.label :first_name %>
+        <%%= required_field %><br />
+        <%%= form.text_field :first_name %>
+      </td>
+      <td>
+        <%%= form.label :last_name %>
+        <%%= required_field %><br />
+        <%%= form.text_field :last_name %>
+      </td>
+    </tr>
+  <table>
+  <hr />
   <p>
     <%%= form.label :email %>
     <%%= required_field %><br />

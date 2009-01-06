@@ -1,15 +1,9 @@
 <%% content_for :sidebar do -%>
   <%% shadowbox "user_details", :class => "sidebar_section" do %>
     <h1>
-<% if options[:use_easy_contacts] -%>
-      <div class="title_actions">
-        <%%= link_to t("users.show.user_details.edit_link"), edit_person_url(@user.person) %>
-      </div>
-<% else -%>
       <div class="title_actions">
         <%%= link_to t("users.show.user_details.edit_link"), edit_user_url(@user) %>
       </div>
-<% end -%>
       <%%= t("users.show.user_details.title") %>
     </h1>
     <table>
@@ -19,11 +13,7 @@
       </tr>
       <tr>
         <td class="label"><%%= t("users.show.user_details.email") %></td>
-<% if options[:use_easy_contacts] -%>
-        <td><%%= auto_link @user.person.emails.first.address %></td>
-<% else -%>
         <td><%%= auto_link @user.email %></td>
-<% end -%>
       </tr>
     </table>
   <%% end %>
@@ -55,12 +45,5 @@
   <div class="title_actions">
     <%%= link_to t("users.show.back"), users_url %>
   </div>
-<% if options[:use_easy_contacts] -%>
-  <%%= @user.person.full_name %><br />
-  <%% unless @user.person.title_description -%>
-    <%%= @user.person.title_description %>
-  <%% end -%>
-<% else -%>
   <%%= @user.full_name %>
-<% end -%>
 </h1>

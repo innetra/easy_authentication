@@ -4,30 +4,41 @@ module EasyRoleAuthentication
     def self.included(recipient)
       recipient.extend(ClassMethods)
       recipient.class_eval do
+
         include InstanceMethods
         include EasyRoleAuthentication::PasswordAuthentication
         include EasyRoleAuthentication::CookieAuthentication
 
+        has_and_belongs_to_many   :roles
+
+        validates_presence_of     :first_name
+        validates_presence_of     :last_name
+        validates_presence_of     :email
+        validates_presence_of     :login, :on => :create
+
+        validates_format_of       :login, :with => /^[a-z_.]+$/
+        validates_format_of       :email,
+          :with => /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+
+        validates_length_of       :login, :minimum => 4
+
+        validates_uniqueness_of   :email, :case_sensitive => false
+        validates_uniqueness_of   :login, :case_sensitive => false
+
         # Virtual attribute for the unencrypted password
-        attr_accessor :password
+        attr_accessor             :password
 
-        has_and_belongs_to_many :roles
-
-        validates_length_of :login,:minimum => 4
-        validates_presence_of :login, :on => :create
-        validates_uniqueness_of :login, :case_sensitive => false
-
-        validates_presence_of     :password,                   :if => :password_required?
-        validates_presence_of     :password_confirmation,      :if => :password_required?
-        validates_confirmation_of :password,                   :if => :password_required?
-        validates_length_of       :password, :minimum => 6,    :if => :password_required?
+        validates_presence_of     :password,                :if => :password_required?
+        validates_presence_of     :password_confirmation,   :if => :password_required?
+        validates_confirmation_of :password,                :if => :password_required?
+        validates_length_of       :password, :minimum => 6, :if => :password_required?
 
         before_save :encrypt_password
 
         # prevents a user from submitting a crafted form that bypasses activation
         # anything else you want your user to change should be added here.
-        attr_accessible :login, :password, :password_confirmation,
-          :role_ids, :full_name, :name, :last_name
+        attr_accessible :first_name, :last_name, :full_name, :email, :login,
+          :password, :password_confirmation, :role_ids
 
       end
     end
@@ -51,6 +62,10 @@ module EasyRoleAuthentication
 
       def to_param
         self.login
+      end
+
+      def full_name
+        "#{self.first_name} #{self.last_name}"
       end
 
       # Encrypts the password with the user salt
