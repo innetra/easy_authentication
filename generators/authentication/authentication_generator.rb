@@ -48,7 +48,6 @@ class AuthenticationGenerator < Rails::Generator::Base
         m.migration_template "migrations/authentications.rb", "db/migrate",
           :assigns => { :migration_name => "CreateAuthentications" },
           :migration_file_name => "create_authentications"
-        end
       end
 
       # Models
