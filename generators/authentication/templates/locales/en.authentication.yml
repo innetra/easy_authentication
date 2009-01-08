@@ -63,6 +63,10 @@ en:
       roles_section:
         title: "Roles for this user"
         edit_link: "Edit"
+  user_password:
+    edit:
+      title: "Change Password for \"{{full_name}}\" ({{login}})"
+      new_password: "New Password"
   user_roles:
     flash:
       update: "User roles updated."

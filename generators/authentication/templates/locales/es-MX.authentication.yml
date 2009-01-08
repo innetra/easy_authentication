@@ -8,6 +8,7 @@
         login: "Nombre usuario"
         password: "Contraseña"
         password_confirmation: "Confirmación contraseña"
+        current_password: "Contraseña Actual"
         email: "Correo Electrónico"
         enabled: "Habilitado"
         first_name: "Nombre(s)"
@@ -77,6 +78,10 @@
       roles_section:
         title: "Roles del usuario"
         edit_link: "Editar"
+  user_password:
+    edit:
+      title: "Cambiar Contraseña \"{{full_name}}\" ({{login}})"
+      new_password: "Nueva Contraseña"
   user_roles:
     flash:
       update: "Roles del usuario actualizados"

@@ -1,6 +1,6 @@
 <h1>
   <div class="title_actions">
-    <%%= link_to t("user_password.edit.cancel"), home_url %>
+    <%%= link_to t("forms.cancel"), home_url %>
   </div>
   <%%= t("user_password.edit.title", :full_name => @user.full_name, :login => @user.login) %>
 </h1>
@@ -12,9 +12,9 @@
     <%%= required_field %><br />
     <%%= form.password_field :current_password %>
   </p>
-  <h2><%= t("user_password.edit.new_password") %></h2>
+  <h2><%%= t("user_password.edit.new_password") %></h2>
   <p>
-    <%%= form.label :password, t("user_password.edit.user_password") %>
+    <%%= form.label :password %>
     <%%= required_field %><br />
     <%%= form.password_field :password %>
   </p>
@@ -26,6 +26,6 @@
   <hr />
   <p>
     <%%= submit_tag t("forms.save") %>&nbsp;ó
-    <%%= link_to t("forms.cancel"), @user, :class => :red %>
+    <%%= link_to t("forms.cancel"), home_url, :class => :red %>
   </p>
 <%% end %>
