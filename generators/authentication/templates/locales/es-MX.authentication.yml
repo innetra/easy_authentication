@@ -83,7 +83,6 @@
       title: "Cambiar Contraseña \"{{full_name}}\" ({{login}})"
       new_password: "Nueva Contraseña"
     forgot_password:
-      title: "Recuperar Contraseña"
       login: "Usuario o Correo Electrónico"
       submit_button: "Recuperar Contraseña"
     reset_password:

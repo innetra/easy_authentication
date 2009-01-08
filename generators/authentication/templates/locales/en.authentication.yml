@@ -67,10 +67,11 @@ en:
     edit:
       title: "Change Password for \"{{full_name}}\" ({{login}})"
       new_password: "New Password"
-    reset:
-      title: "Recover Password"
-      login: "Login or Email"
-      login_button: "Recover Password"
+    forgot_password:
+      login: "Username or Email"
+      submit_button: "Reset Password"
+    reset_password:
+      submit_button: "Change Password"
   user_roles:
     flash:
       update: "User roles updated."
