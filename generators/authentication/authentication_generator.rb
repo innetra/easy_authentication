@@ -85,7 +85,7 @@ class AuthenticationGenerator < Rails::Generator::Base
     end
 
     def controllers
-      %w[ roles sessions user_roles users ]
+      %w[ roles sessions user_roles users user_password ]
     end
 
     def helpers
@@ -94,7 +94,8 @@ class AuthenticationGenerator < Rails::Generator::Base
 
     def views
       %w[ roles/edit roles/_form roles/index roles/new roles/show sessions/new
-        user_roles/edit users/edit users/index users/new users/show users/_user ]
+        user_roles/edit users/edit users/index users/new users/show users/_user
+        user_password/edit ]
     end
 
     def layouts

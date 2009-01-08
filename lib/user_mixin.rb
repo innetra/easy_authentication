@@ -25,8 +25,9 @@ module EasyRoleAuthentication
         validates_uniqueness_of   :email, :case_sensitive => false
         validates_uniqueness_of   :login, :case_sensitive => false
 
-        # Virtual attribute for the unencrypted password
+        # Virtual attribute for the unencrypted password and current_password
         attr_accessor             :password
+        attr_accessor             :current_password
 
         validates_presence_of     :password,                :if => :password_required?
         validates_presence_of     :password_confirmation,   :if => :password_required?
@@ -38,7 +39,7 @@ module EasyRoleAuthentication
         # prevents a user from submitting a crafted form that bypasses activation
         # anything else you want your user to change should be added here.
         attr_accessible :first_name, :last_name, :full_name, :email, :login,
-          :password, :password_confirmation, :role_ids
+          :password, :password_confirmation, :current_password, :role_ids
 
       end
     end

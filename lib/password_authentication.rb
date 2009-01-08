@@ -9,11 +9,14 @@ module EasyRoleAuthentication
 
         # Virtual attribute for the unencrypted password
         attr_accessor :password
+
         validates_presence_of     :password,                   :if => :password_required?
         validates_presence_of     :password_confirmation,      :if => :password_required?
         validates_confirmation_of :password,                   :if => :password_required?
         validates_length_of       :password, :minimum => 6,    :if => :password_required?
+
         before_save :encrypt_password
+
       end
     end
 
@@ -52,7 +55,7 @@ module EasyRoleAuthentication
       end
 
       def password_required?
-        password_hash.blank? || !password.blank?
+        password_hash.blank? || (!password.blank? || !current_password.blank?)
       end
     end # InstanceMethods
 
