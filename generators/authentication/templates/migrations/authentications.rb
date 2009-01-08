@@ -35,6 +35,7 @@ class CreateAuthentications < ActiveRecord::Migration
       t.string :password_salt, :null => false
       t.string :remember_token, :limit => 40
       t.datetime :remember_token_expires_at
+      t.string :reset_password_token, :limit => 40
       t.boolean :enabled, :default => false
 
       t.timestamps

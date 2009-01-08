@@ -39,12 +39,21 @@ module EasyRoleAuthentication
         # prevents a user from submitting a crafted form that bypasses activation
         # anything else you want your user to change should be added here.
         attr_accessible :first_name, :last_name, :full_name, :email, :login,
-          :password, :password_confirmation, :current_password, :role_ids
+          :password, :password_confirmation, :current_password, :role_ids,
+          :reset_password_token
 
       end
     end
 
     module ClassMethods
+
+      # Generate reset password token (it does not reset password!)
+      def reset_password(login)
+        return if login.blank?
+        return unless u = User.first(:conditions => "login = '#{login}' OR email = '#{login}'")
+        u.reset_password_token = make_token
+        u.save
+      end
 
       def authenticate(login, password)
         return if login.blank? || password.blank?
@@ -52,7 +61,7 @@ module EasyRoleAuthentication
         u = u.authenticated?(password) ? u : nil
       end
 
-      # Encrypts some data with the salt.
+      # Encrypts some data with the salt
       def encrypt(password, salt)
         Digest::SHA1.hexdigest("--#{salt}--#{password}--")
       end

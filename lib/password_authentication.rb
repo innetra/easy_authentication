@@ -5,6 +5,7 @@ module EasyRoleAuthentication
     def self.included(recipient)
       recipient.extend(ClassMethods)
       recipient.class_eval do
+
         include InstanceMethods
 
         # Virtual attribute for the unencrypted password

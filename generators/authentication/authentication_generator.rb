@@ -43,12 +43,6 @@ class AuthenticationGenerator < Rails::Generator::Base
         end
       end
 
-      # Migrations
-      unless options[:skip_migrations]
-        m.migration_template "migrations/authentications.rb", "db/migrate",
-          :assigns => { :migration_name => "CreateAuthentications" },
-          :migration_file_name => "create_authentications"
-      end
 
       # Models
       models.each do |model_name|
@@ -70,6 +64,13 @@ class AuthenticationGenerator < Rails::Generator::Base
         "config/locales/en.authentication.yml"
       m.template "locales/es-MX.authentication.yml",
         "config/locales/es-MX.authentication.yml"
+
+      # Migrations
+      unless options[:skip_migrations]
+        m.migration_template "migrations/authentications.rb", "db/migrate",
+          :assigns => { :migration_name => "CreateAuthentications" },
+          :migration_file_name => "create_authentications"
+      end
 
     end
   end
@@ -95,7 +96,8 @@ class AuthenticationGenerator < Rails::Generator::Base
     def views
       %w[ roles/edit roles/_form roles/index roles/new roles/show sessions/new
         user_roles/edit users/edit users/index users/new users/show users/_user
-        user_password/edit ]
+        user_password/edit user_password/forgot_password
+        user_password/reset_password ]
     end
 
     def layouts

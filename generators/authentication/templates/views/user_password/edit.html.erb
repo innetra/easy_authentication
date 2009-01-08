@@ -5,7 +5,7 @@
   <%%= t("user_password.edit.title", :full_name => @user.full_name, :login => @user.login) %>
 </h1>
 
-<%% form_for @user, :url => { :controller => "user_password", :action => "update" } do |form| %>
+<%% form_for @user, :url => { :action => "update" } do |form| %>
   <%%= error_messages_for :user %>
   <p>
     <%%= form.label :current_password %>
