@@ -1,0 +1,47 @@
+<%%= error_messages_for :user %>
+<table>
+  <tr>
+    <td>
+      <%%= form.label :first_name %>
+      <%%= required_field %><br />
+      <%%= form.text_field :first_name %>
+    </td>
+    <td>
+      <%%= form.label :last_name %>
+      <%%= required_field %><br />
+      <%%= form.text_field :last_name %>
+    </td>
+  </tr>
+<table>
+<hr />
+<p>
+  <%%= form.label :email %>
+  <%%= required_field %><br />
+  <%%= form.text_field :email %>
+</p>
+<hr />
+<%% if @user.new_record? -%>
+  <p>
+    <%%= form.label :login %>
+    <%%= required_field %><br />
+    <%%= form.text_field :login %><br />
+    <span class="comment"><%%= t "users.new.login_comment" %></span>
+  </p>
+  <hr />
+<%% end -%>
+<p>
+  <%%= form.label :password %>
+  <%%= required_field %><br />
+  <%%= form.password_field :password %><br />
+  <span class="comment"><%%= t "users.new.password_comment" %></span>
+</p>
+<p>
+  <%%= form.label :password_confirmation %>
+  <%%= required_field %><br />
+  <%%= form.password_field :password_confirmation %>
+</p>
+<hr />
+<p>
+  <%%= submit_tag t("forms.save") %>&nbsp;ó
+  <%%= link_to t("forms.cancel"), users_url, :class => :red %>
+</p>

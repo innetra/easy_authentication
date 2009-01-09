@@ -1,4 +1,4 @@
-namespace :authentication do
+namespace :easy_authentication do
   desc "Read routes to create rights"
   task :rights => :environment do
 

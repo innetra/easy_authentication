@@ -1,4 +1,4 @@
-namespace :authentication do
+namespace :easy_authentication do
   desc "Create sysadmin user"
   task :sysadmin => :environment do
 

@@ -1,0 +1,27 @@
+
+input[type=text],
+input[type=password] {
+  font-size: 24px;
+  width: 97%;
+}
+
+#login_form,
+#forgot_password_form,
+#reset_password_form {
+  margin: 7em auto;
+  text-align: center;
+  width: 325px;
+}
+
+#forgot_password_form .container,
+#reset_password_form .container {
+  padding-bottom: 40px;
+}
+
+.container {
+  text-align: left;
+}
+
+#submit_button {
+  float: right;
+}

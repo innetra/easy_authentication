@@ -1,4 +1,4 @@
-module EasyRoleAuthentication
+module EasyAuthentication
   module CookieAuthentication
 
     # Mixin
@@ -60,4 +60,4 @@ module EasyRoleAuthentication
     end # InstanceMethods
 
   end # CookieAuthentication
-end # EasyRoleAuthentication
+end # EasyAuthentication

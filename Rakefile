@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('easy_role_authentication', '0.0.1') do |e|
+Echoe.new('easy_authentication', '0.0.1') do |e|
   e.description    = "Easy Role Authentication for Ruby on Rails 2.2 (i18n)"
   e.url            = "http://github.com/innetra/easy_role_authentication"
   e.author         = "Ivan Torres"

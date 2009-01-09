@@ -1,0 +1,21 @@
+#user_first_name,
+#user_last_name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.user {
+  padding: 10px 0;
+}
+
+.user a {
+
+}
+
+.security_user {
+  padding: 10px 0;
+}
+
+.full_name {
+  font-size: 18px;
+}

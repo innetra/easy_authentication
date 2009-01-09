@@ -1,0 +1,79 @@
+en:
+  # Views by controller
+  forms:
+    save: "Save"
+    cancel: "Cancel"
+    update: "Update"
+  roles:
+    flash:
+      create: "User role created."
+      update: "User role updated."
+    assigned_rights: "Assigned Rights"
+    edit:
+      title: "Edit User Role \"{{name}}\""
+    index:
+      title: "User Roles"
+      new_role_link: "New user role"
+    new:
+      title: "New User Role"
+    show:
+      title: "User Role \"{{name}}\""
+      edit_link: "Edit"
+      back_link: "Back"
+  sessions:
+    flash:
+      login: "Welcome {{full_name}}."
+      logout: "Your session has been closed."
+      error: "User or password incorrect."
+    new:
+      login: "User"
+      password: "Password"
+      submit_button: "Login"
+      remember_me: "Remember me"
+      recover_password: "Forgot your password?"
+  users:
+    actions:
+      change_password_link: "Change Password"
+      logout_link: "Logout"
+    flash:
+      create: "User created."
+      update: "User updated."
+    index:
+      title: "Users"
+      new_link: "Add new user"
+    edit:
+      title: "Change Password \"{{login}}\""
+      cancel: "Cancel"
+    new:
+      cancel: "Cancel"
+      title: "New User"
+      login_comment: "(Eg: username)"
+      password_comment: "6 caracteres mínimum"
+    show:
+      edit: "Change Password"
+      login: "User"
+      back: "Back"
+      password_section:
+        edit_link: "Change password"
+      user_details:
+        title: "Contact Data"
+        edit_link: "Edit"
+        login: "Login"
+        email: "Email"
+      roles_section:
+        title: "Roles for this user"
+        edit_link: "Edit"
+  user_password:
+    edit:
+      title: "Change Password for \"{{full_name}}\" ({{login}})"
+      new_password: "New Password"
+    forgot_password:
+      login: "Username or Email"
+      submit_button: "Reset Password"
+    reset_password:
+      submit_button: "Change Password"
+  user_roles:
+    flash:
+      update: "User roles updated."
+    edit:
+      title: "Assign roles to \"{{login}}\""
