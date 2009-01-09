@@ -41,7 +41,7 @@
       logout: "Su sessión ha sido cerrada"
       error: "Usuario o contraseña incorrectos"
     new:
-      login: "Usuario"
+      login: "Nombre Usuario o Correo Electrónico"
       password: "Contraseña"
       submit_button: "Ingresar"
       remember_me: "Recordar contraseña"

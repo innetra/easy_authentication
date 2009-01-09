@@ -57,7 +57,7 @@ module EasyAuthentication
 
       def authenticate(login, password)
         return if login.blank? || password.blank?
-        u = User.find_by_login(login)
+        u = User.first(:conditions => "login = '#{login}' OR email = '#{login}'")
         u = u.authenticated?(password) ? u : nil
       end
 

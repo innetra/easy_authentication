@@ -121,6 +121,8 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
         "Don't generate the authentication layout for views (I'll user my own)") { |v| options[:skip_layout] = v }
       opt.on("--skip-migrations",
         "Don't generate migrations") { |v| options[:skip_migrations] = v }
+      opt.on("--skip-routes",
+        "Don't map resources in routes file") { |v| options[:skip_routes] = v }
     end
 
 end

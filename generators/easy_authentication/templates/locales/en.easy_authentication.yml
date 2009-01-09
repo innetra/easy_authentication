@@ -26,7 +26,7 @@ en:
       logout: "Your session has been closed."
       error: "User or password incorrect."
     new:
-      login: "User"
+      login: "User or Email"
       password: "Password"
       submit_button: "Login"
       remember_me: "Remember me"
