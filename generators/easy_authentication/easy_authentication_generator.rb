@@ -2,7 +2,7 @@ require "digest/sha1"
 class EasyAuthenticationGenerator < Rails::Generator::Base
 
   default_options :skip_layout => false, :skip_migrations => false,
-    :skip_routes => true
+    :skip_routes => false
 
   def manifest
     record do |m|
@@ -155,8 +155,9 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
   map.change_password "/change_password", :controller => "user_password",
     :action => "edit"
 
-  map.resources :users
   map.resources :roles
+  map.resources :sessions, :only => [:create]
+  map.resources :users
   map.resources :user_roles, :only => [:edit, :update]
   map.resources :user_password, :only => [:edit, :update]
   # Easy Authentication
