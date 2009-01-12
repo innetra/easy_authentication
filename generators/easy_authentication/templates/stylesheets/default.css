@@ -1,3 +1,4 @@
+<% unless options[:skip_layout] -%>
 body * {
   color: #333;
   font-family: helvetica, arial, clean, sans-serif;
@@ -67,7 +68,6 @@ hr {
   border-bottom: #ccc dotted 1px;
   height: 0;
 }
-
 
 label {
   font-weight: bold;
@@ -239,6 +239,7 @@ body, html {
   padding: 15px 10px 10px 10px;
 }
 
+<% end -%>
 /* User Actions */
 .user_actions {
   float: right;
@@ -246,4 +247,3 @@ body, html {
 
 .user_actions a {
   color: #f00;
-}
