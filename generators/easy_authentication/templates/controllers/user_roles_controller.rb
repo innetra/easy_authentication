@@ -1,6 +1,6 @@
 class UserRolesController < ApplicationController
 
-<% unless options[:skip_layouts] -%>
+<% unless options[:skip_layout] -%>
   layout "easy_authentication"
 <% end -%>
 

@@ -1,6 +1,6 @@
 class UserPasswordController < ApplicationController
 
-<% unless options[:skip_layouts] -%>
+<% unless options[:skip_layout] -%>
   layout "easy_authentication", :only => [ :edit, :update ]
 <% end -%>
 
