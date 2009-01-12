@@ -26,14 +26,14 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
           File.join("app/views", "#{view_name}.html.erb")
       end
 
-      # Sessions Layout
+      # EasyAuthentication Layouts
       unless options[:skip_layouts]
-        m.directory("app/views/layouts")
-        layouts.each do |layout_name|
-          m.template "layouts/#{layout_name}.erb",
-            File.join("app/views/layouts", "#{layout_name}.erb")
-        end
+        # Only if layout creation is needed.
+        m.template "layouts/easy_authentication.erb",
+          File.join("app/views/layouts", "easy_authentication.erb")
       end
+      m.template "layouts/easy_authentication_login.erb",
+        File.join("app/views/layouts", "easy_authentication_login.erb")
 
       # Stylesheets
       unless options[:skip_css]
@@ -102,10 +102,6 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
         user_roles/edit users/edit users/index users/new users/show users/_user
         users/_form user_password/edit user_password/forgot_password
         user_password/reset_password ]
-    end
-
-    def layouts
-      %w[ easy_authentication easy_authentication_login ]
     end
 
     def stylesheets
