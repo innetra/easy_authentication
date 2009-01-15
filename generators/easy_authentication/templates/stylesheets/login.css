@@ -1,3 +1,66 @@
+a {
+  color: #4183c4;
+}
+
+h1 a,
+a.red {
+  color: #f00;
+}
+
+body {
+  background: #F9F9F9;
+  color: #333;
+  font-family: helvetica, arial, clean, sans-serif;
+  font-size: 14px;
+}
+
+hr {
+  border: none;
+  border-bottom: #ccc dotted 1px;
+  height: 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.container {
+  background-color: #fff;
+  border: #ddd solid 3px;
+  padding: 5px;
+}
+
+/* Shadow Effect */
+.shadow {
+  margin-left: 3px;
+  margin-top: 3px;
+}
+
+.shadow .shadow1,
+.shadow .shadow2,
+.shadow .shadow3,
+.sadow .container {
+  position: relative;
+  left: -1px;
+  top: -1px;
+}
+
+.shadow1 {
+  background-color: #c9c9c9;
+}
+
+.shadow2 {
+  background-color: #b0b0b0;
+}
+
+.shadow3 {
+  background-color: #a9a9a9;
+}
 
 input[type=text],
 input[type=password] {
