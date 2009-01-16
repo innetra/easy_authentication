@@ -1,9 +1,14 @@
 en:
+
+  easy_authentication:
+    access_denied: "Access denied"
+
   # Views by controller
   forms:
     save: "Save"
     cancel: "Cancel"
     update: "Update"
+
   roles:
     flash:
       create: "User role created."

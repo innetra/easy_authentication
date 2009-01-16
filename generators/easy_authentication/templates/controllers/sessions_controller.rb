@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   layout "easy_authentication_login"
 
-  before_filter :login_required, :except => [:new, :create]
+  skip_before_filter :login_required, :only => [:new, :create]
 
   def new
   end

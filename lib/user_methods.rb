@@ -87,6 +87,13 @@ module EasyAuthentication
         password_hash == encrypt(password)
       end
 
+      def authorized?(controller_name, action_name)
+        self.roles.each do |role|
+          return true if role.rights.find_by_controller_name_and_action_name(controller_name, action_name)
+        end
+        return false
+      end
+
       protected
 
         # before filter

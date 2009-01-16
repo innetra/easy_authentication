@@ -4,8 +4,7 @@ class UserPasswordController < ApplicationController
   layout "easy_authentication", :only => [ :edit, :update ]
 <% end -%>
 
-  before_filter :login_required, :except => [ :forgot_password,
-                :send_password_token, :reset_password, :update_password ]
+  skip_before_filter :login_required, :except => [ :edit, :update ]
 
   def edit
     @user = User.find_by_login(params[:id])

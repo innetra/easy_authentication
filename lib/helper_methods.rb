@@ -32,8 +32,9 @@ module EasyAuthentication
     #    current_user.login != "bob"
     #  end
     #
-    def authorized?(action = action_name, resource = nil)
-      logged_in?
+    def authorized?
+      return false if !current_user
+      current_user.authorized?(controller_name, action_name)
     end
 
     # Filter method to enforce a login requirement.
@@ -51,7 +52,7 @@ module EasyAuthentication
     #   skip_before_filter :login_required
     #
     def login_required
-      authorized? || access_denied
+      (logged_in? && authorized?) || access_denied
     end
 
     # Redirect as appropriate when an access request fails.
@@ -66,7 +67,12 @@ module EasyAuthentication
       respond_to do |format|
         format.html do
           store_location
-          redirect_to login_url
+          if current_user.blank?
+            redirect_to login_url
+          else
+            flash[:error] = t("easy_authentication.access_denied")
+            redirect_to :back
+          end
         end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987
         # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger

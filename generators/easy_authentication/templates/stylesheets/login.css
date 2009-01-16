@@ -35,6 +35,27 @@ p {
   padding: 5px;
 }
 
+/* Flash */
+
+.flash {
+  border: 3px solid;
+  font-weight: bold;
+  padding: 5px;
+  margin: 0 3px 10px 0;
+}
+
+.flash {
+  background-color: #FFFFE0;
+  border-color: #ffa82a;
+  color: #ff9d0d;
+}
+
+.flash.error {
+  background-color: #FFFFE0;
+  border-color: #f00;
+  color: #f00;
+}
+
 /* Shadow Effect */
 .shadow {
   margin-left: 3px;

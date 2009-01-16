@@ -1,4 +1,8 @@
 "es-MX":
+
+  easy_authentication:
+    access_denied: "Accesso denegado"
+
   # Models
   activerecord:
     models:
@@ -13,11 +17,13 @@
         enabled: "Habilitado"
         first_name: "Nombre(s)"
         last_name: "Apellidos"
+
   # General forms translations
   forms:
     save: "Guardar"
     cancel: "Cancelar"
     update: "Actualizar"
+
   # Views by controller
   roles:
     flash:
