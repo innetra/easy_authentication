@@ -2,9 +2,9 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('easy_authentication', '0.1.0') do |e|
+Echoe.new('easy_authentication', '0.1.1') do |e|
   e.description    = "Easy Role Authentication for Ruby on Rails 2.2 (i18n)"
-  e.url            = "http://github.com/innetra/easy_role_authentication"
+  e.url            = "http://github.com/innetra/easy_authentication"
   e.author         = "Ivan Torres"
   e.email          = "mexpolk@gmail.com"
   e.ignore_pattern = ["tmp/*", "script/*"]
