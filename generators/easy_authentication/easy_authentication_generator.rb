@@ -59,11 +59,19 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
           }
       end
 
+
       # Locales
       m.template "locales/en.easy_authentication.yml",
         "config/locales/en.easy_authentication.yml"
       m.template "locales/es-MX.easy_authentication.yml",
         "config/locales/es-MX.easy_authentication.yml"
+
+      # Rake Tasks
+      m.directory("lib/tasks")
+      tasks.each do |task_name|
+        m.template "tasks/#{task_name}.rake",
+          File.join("lib/tasks", "#{task_name}.rake")
+      end
 
       # Necessary Routes
       unless options[:skip_routes]
@@ -114,6 +122,10 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
 
     def banner
       "Usage: #{$0} easy_authentication"
+    end
+
+    def tasks
+      %w[ rights sysadmin ]
     end
 
     def add_options!(opt)

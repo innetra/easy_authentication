@@ -1,7 +1,4 @@
-easy_authentication.gemspec
 Manifest
-tasks/sysadmin.rake
-tasks/rights.rake
 generators/easy_authentication/templates/stylesheets/users.css
 generators/easy_authentication/templates/stylesheets/login.css
 generators/easy_authentication/templates/stylesheets/roles.css
@@ -9,6 +6,8 @@ generators/easy_authentication/templates/stylesheets/default.css
 generators/easy_authentication/templates/helpers/shadowbox_helper.rb
 generators/easy_authentication/templates/helpers/form_helper.rb
 generators/easy_authentication/templates/migrations/easy_authentication.rb
+generators/easy_authentication/templates/tasks/sysadmin.rake
+generators/easy_authentication/templates/tasks/rights.rake
 generators/easy_authentication/templates/views/user_roles/edit.html.erb
 generators/easy_authentication/templates/views/user_password/edit.html.erb
 generators/easy_authentication/templates/views/user_password/reset_password.html.erb
