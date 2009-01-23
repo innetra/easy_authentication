@@ -45,6 +45,7 @@ test/easy_authentication_test.rb
 Rakefile
 init.rb
 lib/user_methods.rb
+lib/easy_authentication.rb
 lib/password_authentication.rb
 lib/helper_methods.rb
 lib/controller_methods.rb

@@ -10,5 +10,3 @@ module EasyAuthentication
     end
   end
 end
-
-ActionController::Base.send :include, EasyAuthentication::ControllerMethods

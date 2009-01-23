@@ -194,5 +194,3 @@ module EasyAuthentication
     end
   end # EasyAuthentication::UserHelper
 end # EasyAuthentication
-
-ActionController::Base.send :include, EasyAuthentication::HelperMethods
