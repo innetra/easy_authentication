@@ -1,3 +1,4 @@
+easy_authentication.gemspec
 Manifest
 tasks/sysadmin.rake
 tasks/rights.rake
