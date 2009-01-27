@@ -1,3 +1,4 @@
+easy_authentication.gemspec
 Manifest
 generators/easy_authentication/templates/stylesheets/users.css
 generators/easy_authentication/templates/stylesheets/login.css
