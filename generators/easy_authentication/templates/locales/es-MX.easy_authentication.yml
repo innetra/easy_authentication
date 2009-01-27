@@ -55,7 +55,7 @@
   users:
     actions:
       change_password_link: "Cambiar Contraseña"
-      logout_link: "Cerrar Sesión"
+      logout_link: "Cerrar Sesión {{name}}"
     flash:
       create: "Usuario creado."
       update: "Usuario actualizado."
@@ -85,7 +85,13 @@
         title: "Roles del usuario"
         edit_link: "Editar"
   user_password:
+    send_password_token:
+      flash:
+        sent: "{{name}} se ha enviado un correo a tu cuenta \"{{email}}\" con instrucciones para reiniciar tu contraseña."
+        error: "Usuario no registrado."
     edit:
+      flash:
+        update: "Contraseña actualizada."
       title: "Cambiar Contraseña \"{{full_name}}\" ({{login}})"
       new_password: "Nueva Contraseña"
     forgot_password:

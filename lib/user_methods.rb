@@ -53,6 +53,7 @@ module EasyAuthentication
         return unless u = User.first(:conditions => "login = '#{login}' OR email = '#{login}'")
         u.password_reset_token = make_token
         u.save
+        return u
       end
 
       def authenticate(login, password)
