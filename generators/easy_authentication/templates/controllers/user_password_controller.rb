@@ -42,7 +42,7 @@ class UserPasswordController < ApplicationController
   def send_password_token
 
     if user = User.reset_password(params[:login])
-      flash[:notice] = t("user_password.send_password_token.flash.sent", :name => @user.first_name, :email => @user.email)
+      flash[:notice] = t("user_password.send_password_token.flash.sent", :name => user.first_name, :email => user.email)
     else
       flash[:error] = t("user_password.send_password_token.flash.error")
     end
