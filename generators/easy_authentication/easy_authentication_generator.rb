@@ -7,6 +7,13 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
   def manifest
     record do |m|
 
+      # Helpers
+      m.directory("app/helpers")
+      helpers.each do |helper_name|
+        m.template "helpers/#{helper_name}.rb",
+          File.join("app/helpers", "#{helper_name}.rb")
+      end
+
       # Stylesheets
       # Generates CSS for "User Actions Bar" in root stylesheets dir
       m.directory("public/stylesheets")
@@ -56,6 +63,10 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
 
     def make_token
       secure_digest(Time.now, (1..10).map{ rand.to_s })
+    end
+
+    def helpers
+      %w[ form_helper shadowbox_helper ]
     end
 
     def stylesheets
