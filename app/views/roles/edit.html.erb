@@ -1,0 +1,19 @@
+<% content_for :header do -%>
+  <%= stylesheet_link_tag "easy_authentication/roles", :media => :all %>
+<% end -%>
+
+<h1>
+  <div class="title_actions">
+    <%= link_to t("forms.cancel"), @role %>
+  </div>
+  <%= t("roles.edit.title", :name => @role.name) %>
+</h1>
+
+<% form_for @role do |form| %>
+  <%= render :partial => form %>
+  <hr />
+  <p>
+    <%= submit_tag t("forms.update") %>&nbsp;ó
+    <%= link_to t("forms.cancel"), roles_url, :class => :red %>
+  </p>
+<% end %>

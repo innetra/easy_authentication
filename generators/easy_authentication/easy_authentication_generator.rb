@@ -7,47 +7,11 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
   def manifest
     record do |m|
 
-      # Controllers
-      controllers.each do |controller_name|
-        m.template "controllers/#{controller_name}_controller.rb",
-          File.join("app/controllers", "#{controller_name}_controller.rb")
-        m.directory(File.join("app/views", controller_name))
-      end
-
-      # Helpers
-      helpers.each do |helper_name|
-        m.template "helpers/#{helper_name}_helper.rb",
-          File.join("app/helpers", "#{helper_name}_helper.rb")
-      end
-
-      # Views
-      views.each do |view_name|
-        m.template "views/#{view_name}.html.erb",
-          File.join("app/views", "#{view_name}.html.erb")
-      end
-
-      # EasyAuthentication Layouts
-      unless options[:skip_layouts]
-        # Only if layout creation is needed.
-        m.template "layouts/easy_authentication.erb",
-          File.join("app/views/layouts", "easy_authentication.erb")
-      end
-      m.template "layouts/easy_authentication_login.erb",
-        File.join("app/views/layouts", "easy_authentication_login.erb")
-
       # Stylesheets
-      unless options[:skip_css]
-        m.directory("public/stylesheets/easy_authentication")
-        stylesheets.each do |stylesheet_name|
-          m.template "stylesheets/#{stylesheet_name}.css",
-            File.join("public/stylesheets/easy_authentication", "#{stylesheet_name}.css")
-        end
-      end
-
-      # Models
-      models.each do |model_name|
-        m.template "models/#{model_name}.rb",
-          File.join("app/models", "#{model_name}.rb")
+      m.directory("public/stylesheets/easy_authentication")
+      stylesheets.each do |stylesheet_name|
+        m.template "stylesheets/#{stylesheet_name}.css",
+          File.join("public/stylesheets/easy_authentication", "#{stylesheet_name}.css")
       end
 
       # Site Keys
@@ -59,19 +23,11 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
           }
       end
 
-
       # Locales
       m.template "locales/en.easy_authentication.yml",
         "config/locales/en.easy_authentication.yml"
       m.template "locales/es-MX.easy_authentication.yml",
         "config/locales/es-MX.easy_authentication.yml"
-
-      # Rake Tasks
-      m.directory("lib/tasks")
-      tasks.each do |task_name|
-        m.template "tasks/#{task_name}.rake",
-          File.join("lib/tasks", "#{task_name}.rake")
-      end
 
       # Necessary Routes
       unless options[:skip_routes]
@@ -97,35 +53,12 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
       secure_digest(Time.now, (1..10).map{ rand.to_s })
     end
 
-    def controllers
-      %w[ roles sessions user_roles users user_password ]
-    end
-
-    def helpers
-      %w[ form shadowbox ]
-    end
-
-    def views
-      %w[ roles/edit roles/_form roles/index roles/new roles/show sessions/new
-        user_roles/edit users/edit users/index users/new users/show users/_user
-        users/_form user_password/edit user_password/forgot_password
-        user_password/reset_password ]
-    end
-
     def stylesheets
-      %w[ default login roles users ]
-    end
-
-    def models
-      %w[ right role user ]
+      %w[ sessions ]
     end
 
     def banner
       "Usage: #{$0} easy_authentication"
-    end
-
-    def tasks
-      %w[ rights sysadmin ]
     end
 
     def add_options!(opt)
