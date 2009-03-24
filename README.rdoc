@@ -1,10 +1,10 @@
 = Easy Authentication
 
-Rails highend plugin (Rails Engines) for role based authentication
+Rails high end plugin (Rails Engines) for role based authentication.
 
 == Requirements
 
-Rails 2.3.2 (Rails Engines)
+Rails 2.3.2 (Rails Engines).
 
 == Install
 
@@ -12,7 +12,7 @@ First install the plugin in your application:
 
   script/plugin install git://github.com/innetra/easy_authentication.git
 
-This plugin requires to generate some migrations, stylesheets and helpers. Generate them with:
+This plugin requires some helpers, i18n translation, migrations, and stylesheets. Generate them with:
 
   script/generate easy_authentication
 
@@ -28,7 +28,7 @@ Finally generate the rights for all your controllers and actions, and "sysadmin"
 
 Restart your application and you're done!
 
-Default user name is "sysadmin" and password is "monkey".
+Default user name is *"sysadmin"* and password is *"monkey"*.
 
 Enjoy!
 
