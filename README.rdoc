@@ -28,7 +28,7 @@ Finally generate the rights for all your controllers and actions, and "sysadmin"
 
 Restart your application and you're done!
 
-Default user name is *"sysadmin"* and password is *"monkey"*.
+Default user name is "sysadmin" and password is "monkey".
 
 Enjoy!
 
