@@ -1,14 +1,14 @@
-<%% content_for :header do -%>
-  <%%= stylesheet_link_tag "easy_authentication/users", :media => :all %>
-<%% end -%>
+<% content_for :header do -%>
+  <%= stylesheet_link_tag "easy_authentication/users", :media => :all %>
+<% end -%>
 
 <h1>
   <div class="title_actions">
-    <%%= link_to t("users.new.cancel"), users_url %>
+    <%= link_to t("users.new.cancel"), users_url %>
   </div>
-  <%%= t "users.new.title" %>
+  <%= t "users.new.title" %>
 </h1>
 
-<%% form_for @user do |form| %>
-  <%%= render :partial => form %>
-<%% end %>
+<% form_for @user do |form| %>
+  <%= render :partial => form %>
+<% end %>
