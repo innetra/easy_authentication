@@ -16,6 +16,11 @@ This plugin requires to generate some migrations, stylesheets and helpers. Gener
 
   script/generate easy_authentication
 
+The easy_authentication generator provides the following options (you'll need them if the generator is run more than once):
+
+  --skip-migration
+  --skip-routes
+
 Finally generate the rights for all your controllers and actions, and "sysadmin" role and user for your application:
 
   rake easy_authentication:rights

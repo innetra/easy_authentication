@@ -1,8 +1,7 @@
 require "digest/sha1"
 class EasyAuthenticationGenerator < Rails::Generator::Base
 
-  default_options :skip_layout => false, :skip_migrations => false,
-    :skip_routes => false
+  default_options :skip_migrations => false, :skip_routes => false
 
   def manifest
     record do |m|
@@ -80,8 +79,6 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
     def add_options!(opt)
       opt.separator ""
       opt.separator "Options:"
-      opt.on("--skip-layout",
-        "Don't generate the authentication layout for views (I'll user my own)") { |v| options[:skip_layout] = v }
       opt.on("--skip-migrations",
         "Don't generate migrations") { |v| options[:skip_migrations] = v }
       opt.on("--skip-routes",
