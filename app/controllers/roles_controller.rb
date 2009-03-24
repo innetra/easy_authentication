@@ -38,7 +38,7 @@ class RolesController < ApplicationController
 
   def show
     @role = Role.find_by_id(params[:id])
-    @right_groups = @role.rights.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }
+    @right_groups = @role.rights.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }.to_a
 
     respond_to do |format|
       format.html # show.html.erb
@@ -59,7 +59,7 @@ class RolesController < ApplicationController
         format.html { redirect_to(@role) }
         format.xml  { head :ok }
       else
-        @right_groups = Right.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }
+        @right_groups = Right.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }.to_a
         format.html { render :action => "edit" }
         format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
       end
@@ -69,7 +69,7 @@ class RolesController < ApplicationController
   protected
 
   def fetch_right_groups
-    @right_groups = Right.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }
+    @right_groups = Right.all(:order => "controller_name, action_name").group_by{ |p| p.controller_name }.to_a
   end
 
 end
