@@ -1,0 +1,8 @@
+/* User Actions */
+.user_actions {
+  float: right;
+}
+
+.user_actions a {
+  color: #f00;
+}

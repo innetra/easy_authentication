@@ -8,6 +8,11 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
     record do |m|
 
       # Stylesheets
+      # Generates CSS for "User Actions Bar" in root stylesheets dir
+      m.directory("public/stylesheets")
+      m.template "stylesheets/easy_authentication_user_actions.css",
+        File.join("public/stylesheets/", "easy_authentication_user_actions.css")
+      # Generates all other stylesheet files
       m.directory("public/stylesheets/easy_authentication")
       stylesheets.each do |stylesheet_name|
         m.template "stylesheets/#{stylesheet_name}.css",
@@ -54,7 +59,7 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
     end
 
     def stylesheets
-      %w[ sessions ]
+      %w[ roles sessions users ]
     end
 
     def banner
