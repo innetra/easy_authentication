@@ -23,8 +23,8 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
       # Locales
       m.template "locales/en.easy_authentication.yml",
         "config/locales/en.easy_authentication.yml"
-      m.template "locales/es-MX.easy_authentication.yml",
-        "config/locales/es-MX.easy_authentication.yml"
+      m.template "locales/es.easy_authentication.yml",
+        "config/locales/es.easy_authentication.yml"
 
       # Necessary Routes
       unless options[:skip_routes]
