@@ -1,6 +1,6 @@
 namespace :easy_authentication do
   desc "Read routes to create rights"
-  task :rights => :environment do
+  task :init => :environment do
 
     controllers = {}
 
@@ -29,6 +29,35 @@ namespace :easy_authentication do
       else
         right.delete
       end
+    end
+
+    # Initialize rights
+    right_ids = []
+
+    unless sysadmin_role = Role.find_by_name('sysadmin')
+      sysadmin_role = Role.create!( :name => "sysadmin",
+                    :right_ids => right_ids )
+    end
+
+    # Gets all registered rights
+    for right in Right.all do
+      right_ids << right.id
+    end
+
+    # Assign all rights to sysadmin role
+    sysadmin_role.right_ids = right_ids
+    sysadmin_role.save
+
+    # Create sysadmin user
+    unless User.find_by_login("sysadmin")
+
+      User.create!( :first_name => "System",
+                    :last_name => "Administrator",
+                    :login => "sysadmin",
+                    :password => "monkey",
+                    :password_confirmation => "monkey",
+                    :email => "sysadmin@innetra.com",
+                    :role_ids => [sysadmin_role.id] )
     end
 
   end

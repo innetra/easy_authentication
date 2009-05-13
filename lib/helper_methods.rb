@@ -70,7 +70,7 @@ module EasyAuthentication
           if current_user.blank?
             redirect_to login_url
           else
-            flash[:error] = t("easy_authentication.access_denied")
+            flash[:error] = t("helper_methods.access_denied")
             if request.env["HTTP_REFERER"]
               redirect_to :back
             else

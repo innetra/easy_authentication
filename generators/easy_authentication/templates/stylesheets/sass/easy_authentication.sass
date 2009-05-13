@@ -1,3 +1,9 @@
+!link_color = #21A1D5
+!default_border_color = #E0E0E0
+!thin_border_width = 1px
+!thick_border_width = 3px
+!body_background_color = #EFEFEF
+
 // *****************************************************************************
 // Roles Controller
 // *****************************************************************************
@@ -17,7 +23,10 @@
     border-spacing: 20px
     width: 97%
     td
-      border: 1px solid #E0E0E0
+      border:
+        color: !border_color
+        style: solid
+        width: 1px
       margin: 10px
       padding: 0 10px
       padding-bottom: 10px
@@ -29,8 +38,11 @@
         li
           list-style-type: disc
         .rights
-          background-color: #f5f5f5
-          border: 1px dotted #ccc
+          background-color: #F5F5F5
+          border:
+            width: 1px
+            style: dotted
+            color: #CCC
           min-width: 80px
 
 // *****************************************************************************
@@ -39,7 +51,7 @@
 body.sessions
 
   background:
-    color: #F9F9F9
+    color: !body_background_color
     image: none
     repeat: none
   color: #333
@@ -48,14 +60,14 @@ body.sessions
     color: #4183c4
 
   h1 a, a.red
-    color: #F00
+    color: !link_color
 
   hr
     border: none
     border-bottom:
-      color: #CCC
+      color = !default_border_color
       style: solid
-      width: 1px
+      width: !thin_border_width
     height: 0
 
   label
@@ -74,8 +86,11 @@ body.sessions
     width: 325px
 
     .container
-      background-color: #fff
-      border: #ddd solid 3px
+      background-color: #FFF
+      border:
+        color = !default_border_color
+        style: solid
+        width = !thick_border_width
       padding: 5px
       text-align: left
 
@@ -86,6 +101,9 @@ body.sessions
       #submit_button
         float: right
 
+// *****************************************************************************
+// Toolbar session links for change password and logout
+// *****************************************************************************
 #session_options
   float: right
 

@@ -1,6 +1,10 @@
 en:
 
+  helper_methods:
+    access_denied: 'Access denied'
+
   roles:
+    assigned_rights: 'Assigned Rights'
     create:
       flash:
         notice: 'User role created.'
@@ -27,9 +31,13 @@ en:
         error: 'User role not updated.'
 
   sessions:
-    session:
-      change_password: 'Change Password'
-      logout: 'Logout {{login}}'
+    create:
+      flash:
+        notice: "Welcome {{full_name}}."
+        error: 'Incorrect login or password.'
+    destroy:
+      flash:
+        notice: 'Your session has ended.'
     login:
       flash:
         notice: "Welcome {{full_name}}."
@@ -43,6 +51,9 @@ en:
       submit: 'Login'
       remember_me: 'Remember me'
       recover_password: 'Forgot your password?'
+    session:
+      change_password: 'Change Password'
+      logout: 'Logout {{login}}'
 
   users:
     create:
@@ -85,12 +96,10 @@ en:
 
   user_password:
     edit:
+      cancel: 'Cancel'
       new_password: 'New Password'
+      submit: 'Save'
       title: "Change Password for {{full_name}} ({{login}})"
-    update:
-      flash:
-        notice: 'User password updated.'
-        error: 'User password not updated.'
     forgot_password:
       login: 'Username or Email'
       submit: 'Reset Password'
@@ -99,6 +108,14 @@ en:
         notice: 'User password updated.'
         error: 'User password not updated.'
       submit: 'Change Password'
+    send_password_token:
+      flash:
+        notice: 'Read your email for instructions.'
+        error: 'Incorrect login or email.'
+    update:
+      flash:
+        notice: 'User password updated.'
+        error: 'User password not updated.'
 
   user_roles:
     update:
@@ -106,4 +123,6 @@ en:
         notice: 'User roles updated.'
         error: 'User roles not updated.'
     edit:
+      cancel: 'Cancel'
+      submit: 'Save'
       title: "Assign roles to {{full_name}} ({{login}})"

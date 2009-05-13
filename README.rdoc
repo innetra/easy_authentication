@@ -23,8 +23,7 @@ The easy_authentication generator provides the following options (you'll need th
 
 Finally generate the rights for all your controllers and actions, and "sysadmin" role and user for your application:
 
-  rake easy_authentication:rights
-  rake easy_authentication:sysadmin
+  rake easy_authentication:init
 
 Restart your application and you're done!
 
