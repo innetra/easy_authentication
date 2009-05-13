@@ -71,7 +71,11 @@ module EasyAuthentication
             redirect_to login_url
           else
             flash[:error] = t("easy_authentication.access_denied")
-            redirect_to :back
+            if request.env["HTTP_REFERER"]
+              redirect_to :back
+            else
+              redirect_to login_url
+            end
           end
         end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987

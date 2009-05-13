@@ -1,0 +1,11 @@
+#page
+  - shadowbox 'page_content', :class => 'roles new' do
+    %h1
+      .title_actions= link_to t('roles.new.cancel'), roles_url
+      = t('roles.new.title')
+    - form_for @role do |form|
+      = render form
+      %hr
+      %p
+        = submit_tag t('roles.new.submit')
+        = link_to t('roles.new.cancel'), roles_url, :class => 'red'

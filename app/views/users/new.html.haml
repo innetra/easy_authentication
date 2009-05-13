@@ -1,0 +1,13 @@
+- title t("users.new.title")
+#page
+  - shadowbox 'page_content' do
+    %h1
+      .title_actions
+        = link_to t("users.new.cancel"), users_url
+      = yield :title
+    - form_for @user do |form|
+      = render :partial => form
+      %hr
+      %p
+        = submit_tag t("users.new.submit")
+        = link_to t("users.new.cancel"), users_url, :class => :red

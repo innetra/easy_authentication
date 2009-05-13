@@ -12,8 +12,8 @@ class UserPasswordController < ApplicationController
     respond_to do |format|
       if @user.authenticated?(params[:user][:current_password])
         if @user.update_attributes(params[:user])
-          flash[:notice] = t("user_password.edit.flash.update")
-          format.html { redirect_to(home_url) }
+          flash[:notice] = t("user_password.update.flash.notice")
+          format.html { redirect_to(root_url) }
           format.xml  { head :ok }
         else
           format.html { render :action => "edit" }
@@ -21,7 +21,7 @@ class UserPasswordController < ApplicationController
               :status => :unprocessable_entity }
         end
       else
-        flash[:error] = t("user_password.edit.flash.update_error")
+        flash[:error] = t("user_password.update.flash.error")
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors,
               :status => :unprocessable_entity }
@@ -38,7 +38,7 @@ class UserPasswordController < ApplicationController
   def send_password_token
 
     if user = User.reset_password(params[:login])
-      flash[:notice] = t("user_password.send_password_token.flash.sent", :name => user.first_name, :email => user.email)
+      flash[:notice] = t("user_password.send_password_token.flash.notice", :name => user.first_name, :email => user.email)
     else
       flash[:error] = t("user_password.send_password_token.flash.error")
     end
@@ -52,9 +52,9 @@ class UserPasswordController < ApplicationController
   def reset_password
     respond_to do |format|
       if @user = User.find_by_login_and_password_reset_token(params[:login], params[:token])
-        format.html { render :layout => "easy_authentication_login" }
+        format.html { render :layout => "sessions" }
       else
-        flash[:error] = t("user_password.reset_password.flash.invalid_token")
+        flash[:error] = t("user_password.reset_password.flash.error")
         format.html { redirect_to(login_url) }
       end
     end
@@ -68,7 +68,7 @@ class UserPasswordController < ApplicationController
       if @user.update_attributes(params[:user])
         format.html { redirect_to(login_url) }
       else
-        flash[:error] = t("user_password.reset_password.flash.invalid_token")
+        flash[:error] = t("user_password.update_password.flash.error")
         logger.info @user.errors.inspect
         format.html { render :action => "reset_password" }
       end

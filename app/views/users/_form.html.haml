@@ -1,0 +1,47 @@
+%table
+  %tr
+    %td
+      = form.label :first_name
+      = required_field
+      %br
+      = form.text_field :first_name
+      %br
+      = form.error_message_on :first_name
+    %td
+      = form.label :last_name
+      = required_field
+      %br
+      = form.text_field :last_name
+      %br
+      = form.error_message_on :last_name
+%hr
+%p
+  = form.label :email
+  = required_field
+  %br
+  = form.text_field :email
+  = form.error_message_on :email
+%hr
+- if @user.new_record?
+  %p
+    = form.label :login
+    = required_field
+    %br
+    = form.text_field :login
+    = form.error_message_on :login
+    %br
+    %span.comment= t "users._form.login_comment"
+%p
+  = form.label :password
+  = required_field
+  %br
+  = form.password_field :password
+  = form.error_message_on :password
+  %br
+  %span.comment= t "users._form.password_comment"
+%p
+  = form.label :password_confirmation
+  = required_field
+  %br
+  = form.password_field :password_confirmation
+  = form.error_message_on :password_confirmation

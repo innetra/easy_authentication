@@ -1,0 +1,20 @@
+- title t("roles.show.title", :name => @role.name)
+#page
+  - shadowbox 'page_content', :class => 'roles show' do
+    %h1
+      .title_actions
+        = link_to t('roles.show.edit'), edit_role_url(@role)
+        &nbsp;|&nbsp;
+        = link_to t('roles.show.back'), roles_url
+      = yield :title
+    %p= t('roles.show.intro', :name => @role.name)
+    %table{ :class => 'roles' }
+      - @right_groups.in_groups_of(5) do |group|
+        %tr
+          - group.each do |name, rights|
+            - if rights
+              %td{ :class => 'rights' }
+                %h3= "#{name.titleize} Controller"
+                %ul
+                  - for right in rights
+                    %li= right.action_name.to_s.titleize

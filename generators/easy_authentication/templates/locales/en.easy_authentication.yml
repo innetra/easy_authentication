@@ -1,84 +1,106 @@
 en:
 
-  easy_authentication:
-    access_denied: "Access denied"
-
-  # Views by controller
-  forms:
-    save: "Save"
-    cancel: "Cancel"
-    update: "Update"
-
   roles:
-    flash:
-      create: "User role created."
-      update: "User role updated."
-    assigned_rights: "Assigned Rights"
+    create:
+      flash:
+        notice: 'User role created.'
+        error: 'User role updated.'
     edit:
+      cancel: 'Cancel'
+      submit: 'Save'
       title: "Edit User Role \"{{name}}\""
     index:
-      title: "User Roles"
-      new_role_link: "New user role"
+      create_role: 'Create user role'
+      title: 'User Roles'
     new:
-      title: "New User Role"
+      cancel: 'Cancel'
+      submit: 'Save'
+      title: 'New Role'
     show:
+      back: 'Back'
+      edit: 'Edit'
+      intro: 'Actions that {{name}} role is authorized to perform:'
       title: "User Role \"{{name}}\""
-      edit_link: "Edit"
-      back_link: "Back"
+    update:
+      flash:
+        notice: 'User role updated.'
+        error: 'User role not updated.'
+
   sessions:
-    flash:
-      login: "Welcome {{full_name}}."
-      logout: "Your session has been closed."
-      error: "User or password incorrect."
+    session:
+      change_password: 'Change Password'
+      logout: 'Logout {{login}}'
+    login:
+      flash:
+        notice: "Welcome {{full_name}}."
+        error: 'User or password incorrect.'
+    logout:
+      flash:
+        notice: 'Your session has been closed.'
     new:
-      login: "User or Email"
-      password: "Password"
-      submit_button: "Login"
-      remember_me: "Remember me"
-      recover_password: "Forgot your password?"
+      login: 'User or Email'
+      password: 'Password'
+      submit: 'Login'
+      remember_me: 'Remember me'
+      recover_password: 'Forgot your password?'
+
   users:
-    actions:
-      change_password_link: "Change Password"
-      logout_link: "Logout"
-    flash:
-      create: "User created."
-      update: "User updated."
-    index:
-      title: "Users"
-      new_link: "Add new user"
+    create:
+      flash:
+        notice: 'User created.'
+        error: 'User not created.'
     edit:
-      title: "Change Password \"{{login}}\""
-      cancel: "Cancel"
+      cancel: 'Cancel'
+      submit: 'Save'
+      title: "{{full_name}} ({{login}})"
+    _form:
+      login_comment: '(Eg: username)'
+      password_comment: '6 caracteres mínimum'
+    index:
+      create_user: 'Create user'
+      title: 'Users'
     new:
-      cancel: "Cancel"
-      title: "New User"
-      login_comment: "(Eg: username)"
-      password_comment: "6 caracteres mínimum"
+      cancel: 'Cancel'
+      submit: 'Save'
+      title: 'New User'
     show:
-      edit: "Change Password"
-      login: "User"
-      back: "Back"
+      back: 'Back'
+      edit: 'Change Password'
+      login: 'User'
+      title: "{{full_name}} ({{login}})"
       password_section:
-        edit_link: "Change password"
+        edit: 'Change password'
       user_details:
-        title: "Contact Data"
-        edit_link: "Edit"
-        login: "Login"
-        email: "Email"
+        title: 'Contact Data'
+        edit: 'Edit'
+        login: 'Login'
+        email: 'Email'
       roles_section:
-        title: "Roles for this user"
-        edit_link: "Edit"
+        title: 'Roles for this user'
+        edit: 'Edit'
+    update:
+      flash:
+        notice: 'User updated.'
+        error: 'User not updated.'
+
   user_password:
     edit:
-      title: "Change Password for \"{{full_name}}\" ({{login}})"
-      new_password: "New Password"
+      new_password: 'New Password'
+      title: "Change Password for {{full_name}} ({{login}})"
+    update:
+      flash:
+        notice: 'User password updated.'
+        error: 'User password not updated.'
     forgot_password:
-      login: "Username or Email"
-      submit_button: "Reset Password"
+      login: 'Username or Email'
+      submit: 'Reset Password'
     reset_password:
-      submit_button: "Change Password"
+      submit: 'Change Password'
+
   user_roles:
-    flash:
-      update: "User roles updated."
+    update:
+      flash:
+        notice: 'User roles updated.'
+        error: 'User roles not updated.'
     edit:
-      title: "Assign roles to \"{{login}}\""
+      title: "Assign roles to {{full_name}} ({{login}})"

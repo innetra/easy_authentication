@@ -1,0 +1,28 @@
+- title t('users.show.title', :full_name => @user.full_name, :login => @user.login)
+#sidebar
+  - shadowbox 'user_details', :class => 'sidebar_section' do
+    %h1
+      .title_actions= link_to t('users.show.user_details.edit'), edit_user_url(@user)
+      = t('users.show.user_details.title')
+    %table
+      %tr
+        %td.label= t('users.show.user_details.login')
+        %td= @user.login
+      %tr
+        %td.label= t('users.show.user_details.email')
+        %td= auto_link @user.email
+  - shadowbox 'roles_section', :class => 'sidebar_section' do
+    %h1
+      .title_actions= link_to t('users.show.roles_section.edit'), edit_user_role_url(@user)
+      = t('users.show.roles_section.title')
+    %ul
+      - for role in @user.roles
+        - content_tag_for(:li, role) do
+          = role.name
+  - shadowbox 'password_section', :class => 'sidebar_section' do
+    = link_to t('users.show.password_section.edit'), edit_user_url(@user)
+#page.sidebar
+  - shadowbox 'page_content' do
+    %h1
+      .title_actions= link_to t('users.show.back'), users_url
+      = yield :title

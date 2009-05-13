@@ -1,0 +1,28 @@
+%p
+  = form.label :name
+  %br
+  = form.text_field :name, :size => '50'
+  %br
+  = form.error_message_on :name
+%p
+  = form.label :description
+  %br
+  = form.text_area :description, :size => '60x3'
+  %br
+  = form.error_message_on :description
+%h2= t('roles.assigned_rights')
+%table{ :class => 'roles' }
+  - @right_groups.in_groups_of(5) do |group|
+    %tr
+      - group.each do |name, rights|
+        %td
+          %h3= "#{name.to_s.titleize} Controller"
+          %ul
+            - if rights
+              - for right in rights do
+                %li
+                  - if @role.new_record?
+                    = check_box_tag 'role[right_ids][]', right.id
+                  - else
+                    = check_box_tag 'role[right_ids][]', right.id, @role.rights.include?(right)
+                  = right.action_name.to_s.titleize

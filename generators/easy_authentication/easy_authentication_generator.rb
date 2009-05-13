@@ -6,24 +6,10 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
   def manifest
     record do |m|
 
-      # Helpers
-      m.directory("app/helpers")
-      helpers.each do |helper_name|
-        m.template "helpers/#{helper_name}.rb",
-          File.join("app/helpers", "#{helper_name}.rb")
-      end
-
       # Stylesheets
-      # Generates CSS for "User Actions Bar" in root stylesheets dir
-      m.directory("public/stylesheets")
-      m.template "stylesheets/easy_authentication_user_actions.css",
-        File.join("public/stylesheets/", "easy_authentication_user_actions.css")
-      # Generates all other stylesheet files
-      m.directory("public/stylesheets/easy_authentication")
-      stylesheets.each do |stylesheet_name|
-        m.template "stylesheets/#{stylesheet_name}.css",
-          File.join("public/stylesheets/easy_authentication", "#{stylesheet_name}.css")
-      end
+      m.directory("public/stylesheets/sass")
+      m.template "stylesheets/sass/easy_authentication.sass",
+        "public/stylesheets/sass/easy_authentication.sass"
 
       # Site Keys
       unless defined? AUTH_SITE_KEY
@@ -37,8 +23,8 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
       # Locales
       m.template "locales/en.easy_authentication.yml",
         "config/locales/en.easy_authentication.yml"
-      m.template "locales/es-MX.easy_authentication.yml",
-        "config/locales/es-MX.easy_authentication.yml"
+      #m.template "locales/es-MX.easy_authentication.yml",
+      #  "config/locales/es-MX.easy_authentication.yml"
 
       # Necessary Routes
       unless options[:skip_routes]
@@ -62,14 +48,6 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
 
     def make_token
       secure_digest(Time.now, (1..10).map{ rand.to_s })
-    end
-
-    def helpers
-      %w[ form_helper shadowbox_helper ]
-    end
-
-    def stylesheets
-      %w[ roles sessions users ]
     end
 
     def banner

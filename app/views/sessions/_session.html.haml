@@ -1,0 +1,4 @@
+#session_options
+  = link_to t('sessions.session.change_password'), edit_user_password_url(current_user)
+  &nbsp;|&nbsp;
+  = link_to t('sessions.session.logout', :login => current_user.login), logout_url

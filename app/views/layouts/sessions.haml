@@ -1,0 +1,10 @@
+!!! XML
+!!! Strict
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title= "New Rails App - #{yield :title}"
+    = stylesheet_link_tag :all, :media => :all
+    = yield :head
+  %body.sessions
+    - feedback
+    = yield
