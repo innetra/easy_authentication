@@ -95,6 +95,9 @@ en:
       login: 'Username or Email'
       submit: 'Reset Password'
     reset_password:
+      flash:
+        notice: 'User password updated.'
+        error: 'User password not updated.'
       submit: 'Change Password'
 
   user_roles:
