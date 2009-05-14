@@ -69,7 +69,7 @@ en:
       login_comment: 'e.g. username'
       password_comment: '6 caracteres mínimum'
     index:
-      create_user: 'Create user'
+      create_user: 'Create User'
       title: 'Users'
     new:
       cancel: 'Cancel'

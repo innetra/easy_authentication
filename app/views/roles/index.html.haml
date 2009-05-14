@@ -1,10 +1,10 @@
 #sidebar
   - shadowbox 'roles_actions', :class => 'sidebar_section' do
     = link_to t('roles.index.create_role'), new_role_url
-#page.sidebar
+#page.sidebar.roles
   - shadowbox 'page_content', :class => 'roles index' do
     %h1= t('roles.index.title')
-    %ul
+    %ul.registered_roles
       - for role in @roles
         - content_tag_for('li', role) do
           = link_to role.name, role, :class => 'important'

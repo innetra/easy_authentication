@@ -1,5 +1,5 @@
 - title t("user_roles.edit.title", :full_name => @user.full_name, :login => @user.login)
-#page
+#page.roles
   - shadowbox 'page_content', :class => 'roles edit' do
     %h1
       .title_actions= link_to t('user_roles.edit.cancel'), @user
@@ -9,7 +9,7 @@
         - for role in @roles
           - content_tag_for('li', role) do
             = check_box_tag 'user[role_ids][]', role.id, @user.roles.include?(role)
-            = role.name
+            = role.name.titleize
       %hr
       %p
         = submit_tag t('user_roles.edit.submit')
