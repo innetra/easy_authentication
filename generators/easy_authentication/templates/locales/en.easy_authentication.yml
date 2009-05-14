@@ -7,14 +7,14 @@ en:
     assigned_rights: 'Assigned Rights'
     create:
       flash:
-        notice: 'User role created.'
-        error: 'User role updated.'
+        notice: 'User Role created.'
+        error: 'User Role updated.'
     edit:
       cancel: 'Cancel'
       submit: 'Save'
-      title: "Edit User Role \"{{name}}\""
+      title: "Edit \"{{name}}\" Role"
     index:
-      create_role: 'Create user role'
+      create_role: 'Create User Role'
       title: 'User Roles'
     new:
       cancel: 'Cancel'
@@ -27,8 +27,8 @@ en:
       title: "User Role \"{{name}}\""
     update:
       flash:
-        notice: 'User role updated.'
-        error: 'User role not updated.'
+        notice: 'User Role updated.'
+        error: 'User Role not updated.'
 
   sessions:
     create:
@@ -65,7 +65,8 @@ en:
       submit: 'Save'
       title: "{{full_name}} ({{login}})"
     _form:
-      login_comment: '(Eg: username)'
+      email_comment: 'e.g. myname@mycompany.com'
+      login_comment: 'e.g. username'
       password_comment: '6 caracteres mínimum'
     index:
       create_user: 'Create user'
@@ -120,8 +121,8 @@ en:
   user_roles:
     update:
       flash:
-        notice: 'User roles updated.'
-        error: 'User roles not updated.'
+        notice: 'User Roles updated.'
+        error: 'User Roles not updated.'
     edit:
       cancel: 'Cancel'
       submit: 'Save'

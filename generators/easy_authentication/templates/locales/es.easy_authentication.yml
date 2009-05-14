@@ -65,7 +65,8 @@ es:
       submit: 'Guardar'
       title: "{{full_name}} ({{login}})"
     _form:
-      login_comment: 'Ej. nombre_usuario'
+      email_comment: 'Ej. minombre@micompania.com'
+      login_comment: 'Ej. nombreusuario'
       password_comment: '6 caracteres mínimo'
     index:
       create_user: 'Crear usuario'

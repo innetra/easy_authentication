@@ -2,10 +2,10 @@
 #sidebar
   - shadowbox 'users_actions', :class => 'sidebar_section' do
     = link_to t('users.index.create_user'), new_user_url
-#page.sidebar
-  - shadowbox 'page_content', :class => 'users index' do
+#page.sidebar.users
+  - shadowbox 'page_content' do
     %h1= yield :title
-    %ul
+    %ul.registered_users
       - for user in @users
         - content_tag_for(:li, user) do
           = link_to user.full_name, user, :class => 'full_name important'

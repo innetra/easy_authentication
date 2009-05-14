@@ -21,6 +21,8 @@
   %br
   = form.text_field :email
   = form.error_message_on :email
+  %br
+  %span.comment= t "users._form.email_comment"
 %hr
 - if @user.new_record?
   %p

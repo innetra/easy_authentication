@@ -110,9 +110,17 @@ body.sessions
 // *****************************************************************************
 // Users Controller
 // *****************************************************************************
-.users.index
+.users
+  .registered_users
   li
     padding: 5px 0
     .important
-      font-size: 1.2em
-      font-weight: bold
+      font:
+        size: 1.2em
+        weight: bold
+
+  #user_first_name,
+  #user_last_name
+    font:
+      size: 1.5em
+      weight: bold
