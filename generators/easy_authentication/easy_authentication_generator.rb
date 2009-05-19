@@ -1,7 +1,7 @@
 require "digest/sha1"
 class EasyAuthenticationGenerator < Rails::Generator::Base
 
-  default_options :skip_migrations => false, :skip_routes => false
+  default_options :skip_migrations => false
 
   def manifest
     record do |m|
@@ -59,41 +59,6 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
       opt.separator "Options:"
       opt.on("--skip-migrations",
         "Don't generate migrations") { |v| options[:skip_migrations] = v }
-      opt.on("--skip-routes",
-        "Don't map resources in routes file") { |v| options[:skip_routes] = v }
     end
 
-    def gsub_file(relative_destination, regexp, *args, &block)
-      path = destination_path(relative_destination)
-      content = File.read(path).gsub(regexp, *args, &block)
-      File.open(path, 'wb') { |file| file.write(content) }
-    end
-
-    def generate_routes
-      sentinel = 'ActionController::Routing::Routes.draw do |map|'
-
-      # Do not change indentation in this method!!!
-      gsub_file 'config/routes.rb', /(#{Regexp.escape(sentinel)})/mi do |match|
-        %{#{match}\n
-  # Easy Authentication
-  map.login "/login", :controller => "sessions", :action => "new"
-  map.logout "/logout", :controller => "sessions", :action => "destroy"
-  map.forgot_password "/forgot_password", :controller => "user_password",
-    :action => "forgot_password"
-  map.reset_password "/reset_password/:login/:token",
-    :controller => "user_password", :action => "reset_password", :method => "get"
-  map.reset_password "/reset_password",
-    :controller => "user_password", :action => "update_password", :method => "post"
-  map.change_password "/change_password", :controller => "user_password",
-    :action => "edit"
-
-  map.resources :roles
-  map.resources :sessions, :only => [:create]
-  map.resources :users
-  map.resources :user_roles, :only => [:edit, :update]
-  map.resources :user_password, :only => [:edit, :update]
-  # Easy Authentication
-        }
-      end
-    end
 end
