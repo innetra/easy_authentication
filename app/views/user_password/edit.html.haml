@@ -1,17 +1,17 @@
-- title t("user_password.edit.title", :full_name => @user.full_name, :login => @user.login)
+- title t('.title', :default => 'Change Password for {{full_name}} ({{login}})', :full_name => @user.full_name, :login => @user.login)
+
 #page.users
   - shadowbox 'page_content' do
-    %h1
-      .title_actions= link_to t("user_password.edit.cancel"), root_url
-      = yield :title
-    - form_for @user, :url => { :action => "update" } do |form|
+    = user_feedback
+    .title_actions= link_to t('.cancel', :default => 'Cancel'), root_url
+    - form_for @user, :url => { :action => 'update' } do |form|
       %p
         = form.label :current_password
         = required_field
         %br
         = form.password_field :current_password
         = form.error_message_on :current_password
-      %h2= t("user_password.edit.new_password")
+      %h2= t('.new_password', :default => 'New Password')
       %p
         = form.label :password
         = required_field
@@ -26,6 +26,6 @@
         = form.error_message_on :password_confirmation
       %hr
       %p
-        = submit_tag t("user_password.edit.submit")
+        = submit_tag t('.submit', :default => 'Save'), :id => 'submit'
         &nbsp;|&nbsp;
-        = link_to t("user_password.edit.cancel"), root_url, :class => :red
+        = link_to t('.cancel', :default => 'Cancel'), root_url, :class => 'red'

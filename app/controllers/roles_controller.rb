@@ -26,11 +26,11 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.save
-        flash[:notice] = t("roles.create.flash.notice")
+        flash[:notice] = t("roles.create.flash.notice", :default => 'User Role created.')
         format.html { redirect_to(@role) }
         format.xml  { render :xml => @role, :status => :created, :location => @role }
       else
-        flash[:error] = t("roles.create.flash.error")
+        flash[:error] = t("roles.create.flash.error", :default => 'User Role not created')
         format.html { render :action => "new" }
         format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
       end
@@ -56,11 +56,11 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.update_attributes(params[:role])
-        flash[:notice] = t("roles.update.flash.notice")
+        flash[:notice] = t("roles.update.flash.notice", :default => 'User Role updated.')
         format.html { redirect_to(@role) }
         format.xml  { head :ok }
       else
-        flash[:error] = t("roles.create.flash.error")
+        flash[:error] = t("roles.create.flash.error", :default => 'User Role not updated.')
         @right_groups = Right.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }.to_a
         format.html { render :action => "edit" }
         format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }

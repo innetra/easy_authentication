@@ -1,14 +1,16 @@
-- title t('users.index.title')
+- title t('.title', :default => 'Users')
+
 #sidebar
-  - shadowbox 'users_actions', :class => 'sidebar_section' do
-    = link_to t('users.index.create_user'), new_user_url
+  - shadowbox 'users_actions' do
+    = link_to t('.create_user', :default => 'Create User'), new_user_url
+
 #page.sidebar.users
   - shadowbox 'page_content' do
-    %h1= yield :title
+    = user_feedback
     %ul.registered_users
       - for user in @users
         - content_tag_for(:li, user) do
-          = link_to user.full_name, user, :class => 'full_name important'
+          %span.big= link_to user.full_name, user, :class => 'full_name important'
           = "(#{user.login})"
           %br
           = auto_link user.email

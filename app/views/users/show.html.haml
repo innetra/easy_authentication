@@ -1,28 +1,28 @@
-- title t('users.show.title', :full_name => @user.full_name, :login => @user.login)
+- title t('.title', :default => 'Users: {{full_name}} ({{login}})', :full_name => @user.full_name, :login => @user.login)
+
 #sidebar
-  - shadowbox 'user_details', :class => 'sidebar_section' do
+  - shadowbox 'user_details' do
+    .title_actions= link_to t('.edit', :default => 'Edit'), edit_user_url(@user)
     %h1
-      .title_actions= link_to t('users.show.user_details.edit'), edit_user_url(@user)
-      = t('users.show.user_details.title')
+      = t('.user_details_title', :default => 'User Details')
     %table
       %tr
-        %td.label= t('users.show.user_details.login')
+        %th.label= t('.login', :default => 'Login')
         %td= @user.login
       %tr
-        %td.label= t('users.show.user_details.email')
+        %th.label= t('.email', :default => 'Email')
         %td= auto_link @user.email
-  - shadowbox 'roles_section', :class => 'sidebar_section' do
+
+  - shadowbox 'roles_section' do
+    .title_actions= link_to t('.edit', :default => 'Edit'), edit_user_role_url(@user)
     %h1
-      .title_actions= link_to t('users.show.roles_section.edit'), edit_user_role_url(@user)
-      = t('users.show.roles_section.title')
+      = t('.roles_title', :default => 'Roles')
     %ul
       - for role in @user.roles
         - content_tag_for(:li, role) do
           = role.name
   - shadowbox 'password_section', :class => 'sidebar_section' do
-    = link_to t('users.show.password_section.edit'), edit_user_url(@user)
+    = link_to t('.edit', :default => 'Change Password'), edit_user_url(@user)
 #page.sidebar
   - shadowbox 'page_content' do
-    %h1
-      .title_actions= link_to t('users.show.back'), users_url
-      = yield :title
+    .title_actions= link_to t('.back', :default => 'Back'), users_url

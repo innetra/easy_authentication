@@ -1,9 +1,9 @@
-- title t("user_roles.edit.title", :full_name => @user.full_name, :login => @user.login)
+- title t('.title', :default => 'Edit {{full_name}} ({{login}}) Roles', :full_name => @user.full_name, :login => @user.login)
+
 #page.roles
   - shadowbox 'page_content', :class => 'roles edit' do
-    %h1
-      .title_actions= link_to t('user_roles.edit.cancel'), @user
-      = yield :title
+    = user_feedback
+    .title_actions= link_to t('.cancel', :default => 'Cancel'), @user
     - form_for @user do |form|
       %ul#roles
         - for role in @roles
@@ -12,6 +12,6 @@
             = role.name.titleize
       %hr
       %p
-        = submit_tag t('user_roles.edit.submit')
+        = submit_tag t('.submit', :default => 'Save')
         &nbsp;|&nbsp;
-        = link_to t('user_roles.edit.cancel'), @user, :class => 'red'
+        = link_to t('.cancel', :default => 'Cancel'), @user

@@ -1,20 +1,19 @@
-- title t("roles.show.title", :name => @role.name)
+- title t(".title", :default => 'User Roles: {{name}}', :name => @role.name)
+
 #page.roles
   - shadowbox 'page_content', :class => 'roles show' do
-    %h1
-      .title_actions
-        = link_to t('roles.show.edit'), edit_role_url(@role)
-        &nbsp;|&nbsp;
-        = link_to t('roles.show.back'), roles_url
-      = yield :title
-    %p= t('roles.show.intro', :name => @role.name)
+    .title_actions
+      = link_to t('roles.show.edit'), edit_role_url(@role)
+      &nbsp;|&nbsp;
+      = link_to t('roles.show.back'), roles_url
+    %p= t('.intro', :default => 'Rights granted to this User Role', :name => @role.name)
     %table{ :class => 'roles' }
       - @right_groups.in_groups_of(5) do |group|
         %tr
           - group.each do |name, rights|
             - if rights
               %td{ :class => 'rights' }
-                %h3= "#{name.titleize} Controller"
+                %h3= t('.controller_name', :default => "{{controller_name}} Controller", :controller_name => name.to_s.titleize)
                 %ul
                   - for right in rights
                     %li= right.action_name.to_s.titleize

@@ -32,11 +32,14 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:notice] = t('users.create.flash.notice', :login => @user.login)
+        flash[:notice] = t('users.create.flash.notice',
+          :default => 'User {{login}} created.',
+          :login => @user.login)
         format.html { redirect_to(@user) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
-        flash[:error] = t('users.create.flash.error')
+        flash[:error] = t('users.create.flash.error',
+          :default => 'User not created.')
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
@@ -52,11 +55,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = t('users.update.flash.notice', :login => @user.login)
+        flash[:notice] = t('users.update.flash.notice',
+          :default => 'User updated.', :login => @user.login)
         format.html { redirect_to(@user) }
         format.xml  { head :ok }
       else
-        flash[:error] = t('users.update.flash.error')
+        flash[:error] = t('users.update.flash.error',
+          :default => 'User not updated.')
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end

@@ -17,10 +17,10 @@ class SessionsController < ApplicationController
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
       redirect_back_or_default('/')
-      flash[:notice] = t("sessions.create.flash.notice", :full_name => user.full_name)
+      flash[:notice] = t("sessions.create.flash.notice", :default => 'Welcome {{full_name}}.', :full_name => user.full_name)
     else
       log_failed_login
-      flash[:error] = t("sessions.create.flash.error")
+      flash[:error] = t("sessions.create.flash.error", :default => 'User or Password incorrect.')
       @login       = params[:login]
       @remember_me = params[:remember_me]
       render :action => 'new'
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout_killing_session!
-    flash[:notice] = t("sessions.destroy.flash.notice")
+    flash[:notice] = t("sessions.destroy.flash.notice", :default => 'Your session has ended.')
     redirect_back_or_default('/')
   end
 

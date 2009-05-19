@@ -12,7 +12,8 @@ class UserPasswordController < ApplicationController
     respond_to do |format|
       if @user.authenticated?(params[:user][:current_password])
         if @user.update_attributes(params[:user])
-          flash[:notice] = t("user_password.update.flash.notice")
+          flash[:notice] = t("user_password.update.flash.notice",
+            :default => 'Password updated.')
           format.html { redirect_to(root_url) }
           format.xml  { head :ok }
         else
@@ -21,7 +22,8 @@ class UserPasswordController < ApplicationController
               :status => :unprocessable_entity }
         end
       else
-        flash[:error] = t("user_password.update.flash.error")
+        flash[:error] = t("user_password.update.flash.error",
+          :default => 'Password not updated.')
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors,
               :status => :unprocessable_entity }
@@ -38,9 +40,12 @@ class UserPasswordController < ApplicationController
   def send_password_token
 
     if user = User.reset_password(params[:login])
-      flash[:notice] = t("user_password.send_password_token.flash.notice", :name => user.first_name, :email => user.email)
+      flash[:notice] = t("user_password.send_password_token.flash.notice",
+        :default => 'Check your email for instructions.',
+        :name => user.first_name, :email => user.email)
     else
-      flash[:error] = t("user_password.send_password_token.flash.error")
+      flash[:error] = t("user_password.send_password_token.flash.error",
+        :default => 'There was an error reseting your password. Please contact support.')
     end
 
     respond_to do |format|
@@ -54,7 +59,8 @@ class UserPasswordController < ApplicationController
       if @user = User.find_by_login_and_password_reset_token(params[:login], params[:token])
         format.html { render :layout => "sessions" }
       else
-        flash[:error] = t("user_password.reset_password.flash.error")
+        flash[:error] = t("user_password.reset_password.flash.error",
+          :default => 'There was an error reseting your password. Please contact support.')
         format.html { redirect_to(login_url) }
       end
     end

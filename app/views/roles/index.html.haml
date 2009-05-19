@@ -1,12 +1,16 @@
+- title t('.title', :default => 'User Roles')
+
 #sidebar
   - shadowbox 'roles_actions', :class => 'sidebar_section' do
-    = link_to t('roles.index.create_role'), new_role_url
+    %p= link_to t('.create_role', :default => 'Create User Role'), new_role_url
+
 #page.sidebar.roles
   - shadowbox 'page_content', :class => 'roles index' do
-    %h1= t('roles.index.title')
+    = user_feedback
     %ul.registered_roles
       - for role in @roles
         - content_tag_for('li', role) do
-          = link_to role.name, role, :class => 'important'
-          - unless role.description.blank?
-            = role.description
+          %p
+            = link_to role.name, role, :class => 'big bold'
+            - unless role.description.blank?
+              %p= role.description

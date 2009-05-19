@@ -1,16 +1,20 @@
+- title t('.title', :default => 'Please Logins')
+
 - shadowbox 'login_form' do
+  = user_feedback
   - form_tag sessions_url do
     %p
-      = label_tag t('sessions.new.login')
+      = label_tag t('.login', :default => 'Login or Email')
       %br
       = text_field_tag 'login', @login
     %p
-      = label_tag t("sessions.new.password")
+      = label_tag t(".password", :default => 'Password')
       %br
       = password_field_tag 'password', nil
     %p
-      = submit_tag t('sessions.new.submit'), :id => 'submit_button'
+      = submit_tag t('.submit', :default => 'Login'), :id => 'submit_button'
       = check_box_tag 'remember_me', '1', @remember_me
-      %span= t('sessions.new.remember_me')
+      %span= t('.remember_me', :default => 'Remember me on this computer')
     %hr
-    %p= link_to t('sessions.new.recover_password'), forgot_password_url, :class => 'red'
+    %p
+      = link_to t('.recover_password', :default => 'Forgot your password?'), forgot_password_url, :class => 'red'

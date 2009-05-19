@@ -10,13 +10,13 @@
   = form.text_area :description, :size => '60x3'
   %br
   = form.error_message_on :description
-%h2= t('roles.assigned_rights')
+%h2= t('.assigned_rights', :default => 'Assigned Rights')
 %table{ :class => 'roles' }
   - @right_groups.in_groups_of(5) do |group|
     %tr
       - group.each do |name, rights|
         %td
-          %h3= "#{name.to_s.titleize} Controller"
+          %h3= t('.controller_name', :default => "{{controller_name}} Controller", :controller_name => name.to_s.titleize)
           %ul
             - if rights
               - for right in rights do
