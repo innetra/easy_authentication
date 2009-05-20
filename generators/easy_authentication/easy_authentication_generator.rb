@@ -1,4 +1,5 @@
 require "digest/sha1"
+
 class EasyAuthenticationGenerator < Rails::Generator::Base
 
   default_options :skip_migrations => false
@@ -8,7 +9,7 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
 
       # Stylesheets
       m.directory("public/stylesheets/sass")
-      m.template "stylesheets/sass/easy_authentication.sass",
+      m.file "stylesheets/sass/easy_authentication.sass",
         "public/stylesheets/sass/easy_authentication.sass"
 
       # Site Keys
@@ -21,13 +22,8 @@ class EasyAuthenticationGenerator < Rails::Generator::Base
       end
 
       # Locales
-      m.template "locales/es-MX.easy_authentication.yml",
+      m.file "locales/es-MX.easy_authentication.yml",
         "config/locales/es-MX.easy_authentication.yml"
-
-      # Necessary Routes
-      unless options[:skip_routes]
-        generate_routes
-      end
 
       # Migrations
       unless options[:skip_migrations]
