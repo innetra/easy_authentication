@@ -1,3 +1,145 @@
 'es-MX':
 
-  nothing: 'Nothing'
+  activerecord:
+    models:
+      right: 'Permiso'
+      role: 'Rol'
+      user: 'Usuario'
+    attributes:
+      right:
+        action_name: 'Acción'
+        controller_name: 'Controlador'
+      role:
+        name: 'Nombre'
+        description: 'Descripción'
+      user:
+        first_name: 'Nombre'
+        last_name: 'Apellido'
+        email: 'Correo Electrónico'
+        login: 'Nombre Usuario'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación Contraseña'
+
+  roles:
+    create:
+      flash:
+        error: 'Rol no creado.'
+        notice: 'Rol creado.'
+    edit:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: 'Rol de Usuario - {{name}}'
+    form:
+      assigned_rights: 'Permisos Asignados'
+      controller_name: 'Controlador {{controller_name}}'
+    index:
+      title: 'Roles de Usuario'
+      new: 'Crear nuevo Rol de Usuario'
+    new:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: 'Nuevo Rol de Usuario'
+    show:
+      back: 'Regresar'
+      controller_name: 'Controllador {{name}}'
+      edit: 'Editar'
+      roles_rights: 'Permisos asignados al Rol de Usuario'
+      title: 'Rol de Usuario: {{name}}'
+    update:
+      flash:
+        error: 'Rol no actualizado.'
+        notice: 'Rol actualizado.'
+
+  sessions:
+    create:
+      flash:
+        error: 'Usuario o contraseña son inválidos.'
+        notice: 'Bienvenido {{full_name}}.'
+    destroy:
+      flash:
+        notice: 'Su sessión ha terminado.'
+    new:
+      login: 'Nombre Usuario o Correo Electrónico'
+      password: 'Contraseña'
+      recover_password: 'Recuperar contraseña'
+      remember_me: 'Recordarme en este equipo'
+      submit: 'Enviar'
+      title: 'Identificación'
+    session:
+      change_password: 'Cambiar Contraseña'
+      logout: 'Cerrar sessión {{login}}'
+
+  user_password:
+    edit:
+      cancel: 'Cancelar'
+      edit: 'Editar'
+      new_password: 'Nueva Contraseña'
+      submit: 'Guardar'
+      title: 'Cambiar Contraseña - {{full_name}} ({{login}})'
+    forgot_password:
+      cancel: 'Cancel'
+      login: 'Usuario o Correo Electrónico'
+      submit: 'Enviar'
+      title: 'Recuperar Contraseña'
+    reset_password:
+      cancel: 'Cancelar'
+      flash:
+        error: 'Error al intentar reiniciar su contraseña.'
+      submit: 'Enviar'
+      title: 'Inicializar Contraseña'
+    send_password_token:
+      flash:
+        error: 'Error al intentar reiniciar su contraseña.'
+        notice: 'Consulte su correo electrónico para más instrucciones.'
+    update:
+      flash:
+        error: 'Contraseña no actualizada.'
+        notice: 'Contraseña actualizada'
+    update_password:
+      flash:
+        error: 'Erorr al intentar actualizar su contraseña.'
+
+  user_roles:
+    edit:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: 'Editar Roles Usuario - {{full_name}} ({{login}})'
+    update:
+      flash:
+        error: 'Roles de usuario no actualizados.'
+        notice: 'Roles de usuario actualizados.'
+
+  users:
+    create:
+      flash:
+        error: 'Usuario no creado.'
+        notice: 'Usuario creado.'
+    edit:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: 'Usuarios - {{full_name}} ({{login}})'
+    form:
+      email_comment: 'Ej. minombre@miempresa.com.mx'
+      login_comment: 'Ej. minombre'
+      password_comment: '6 caracteres como mínimo'
+      password_confirmation_comment: 'confirmar contraseña'
+    index:
+      create_user: 'Crear nuevo Usuario'
+      title: 'Usuarios'
+    new:
+      cancel: 'Cancelar'
+      submit: 'Guardar'
+      title: 'Nuevo Usuario'
+    show:
+      back: 'Regresar'
+      change_password: 'Cambiar contraseña'
+      edit: 'Editar'
+      email: 'Correo Electrónico'
+      login: 'Nombre Usuario'
+      roles_title: 'Roles del Usuario'
+      title: 'Usuarios - {{full_name}} ({{login}})'
+      user_details_title: 'Detalles Usuario'
+    update:
+      flash:
+        error: 'Usuario no actualizado.'
+        notice: 'Usuario actualizado.'

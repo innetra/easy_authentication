@@ -45,7 +45,7 @@ class UserPasswordController < ApplicationController
         :name => user.first_name, :email => user.email)
     else
       flash[:error] = t('user_password.send_password_token.flash.error',
-        :default => 'There was an error reseting your password. Please contact support.')
+        :default => 'There was an error reseting your password. ')
     end
 
     respond_to do |format|
@@ -60,7 +60,7 @@ class UserPasswordController < ApplicationController
         format.html { render :layout => 'sessions' }
       else
         flash[:error] = t('user_password.reset_password.flash.error',
-          :default => 'There was an error reseting your password. Please contact support.')
+          :default => 'There was an error reseting your password.')
         format.html { redirect_to(login_url) }
       end
     end
@@ -74,7 +74,8 @@ class UserPasswordController < ApplicationController
       if @user.update_attributes(params[:user])
         format.html { redirect_to(login_url) }
       else
-        flash[:error] = t('user_password.update_password.flash.error')
+        flash[:error] = t('user_password.update_password.flash.error',
+          'There was an error updating your password.')
         logger.info @user.errors.inspect
         format.html { render :action => 'reset_password' }
       end
