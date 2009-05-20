@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       else
         flash[:error] = t('users.create.flash.error',
           :default => 'User not created.')
-        format.html { render :action => "new" }
+        format.html { render :action => 'new' }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       else
         flash[:error] = t('users.update.flash.error',
           :default => 'User not updated.')
-        format.html { render :action => "edit" }
+        format.html { render :action => 'edit' }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end

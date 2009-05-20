@@ -23,6 +23,8 @@
           = role.name
   - shadowbox 'password_section', :class => 'sidebar_section' do
     = link_to t('.edit', :default => 'Change Password'), edit_user_url(@user)
+
 #page.sidebar
   - shadowbox 'page_content' do
+    = user_feedback
     .title_actions= link_to t('.back', :default => 'Back'), users_url

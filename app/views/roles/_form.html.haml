@@ -10,6 +10,7 @@
   = form.text_area :description, :size => '60x3'
   %br
   = form.error_message_on :description
+
 %h2= t('.assigned_rights', :default => 'Assigned Rights')
 %table{ :class => 'roles' }
   - @right_groups.in_groups_of(5) do |group|

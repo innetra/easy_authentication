@@ -10,7 +10,7 @@
     %ul.registered_users
       - for user in @users
         - content_tag_for(:li, user) do
-          %span.big= link_to user.full_name, user, :class => 'full_name important'
+          %span.big= link_to user.full_name, user, :class => 'full_name medium bold'
           = "(#{user.login})"
           %br
           = auto_link user.email

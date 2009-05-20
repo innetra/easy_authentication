@@ -26,12 +26,12 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.save
-        flash[:notice] = t("roles.create.flash.notice", :default => 'User Role created.')
+        flash[:notice] = t('roles.create.flash.notice', :default => 'User Role created.')
         format.html { redirect_to(@role) }
         format.xml  { render :xml => @role, :status => :created, :location => @role }
       else
-        flash[:error] = t("roles.create.flash.error", :default => 'User Role not created')
-        format.html { render :action => "new" }
+        flash[:error] = t('roles.create.flash.error', :default => 'User Role not created')
+        format.html { render :action => 'new' }
         format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
       end
     end
@@ -39,7 +39,7 @@ class RolesController < ApplicationController
 
   def show
     @role = Role.find_by_id(params[:id])
-    @right_groups = @role.rights.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }.to_a
+    @right_groups = @role.rights.all(:order => 'controller_name, action_name').group_by { |p| p.controller_name }.to_a
 
     respond_to do |format|
       format.html # show.html.erb
@@ -56,13 +56,13 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.update_attributes(params[:role])
-        flash[:notice] = t("roles.update.flash.notice", :default => 'User Role updated.')
+        flash[:notice] = t('roles.update.flash.notice', :default => 'User Role updated.')
         format.html { redirect_to(@role) }
         format.xml  { head :ok }
       else
-        flash[:error] = t("roles.create.flash.error", :default => 'User Role not updated.')
-        @right_groups = Right.all(:order => "controller_name, action_name").group_by { |p| p.controller_name }.to_a
-        format.html { render :action => "edit" }
+        flash[:error] = t('roles.create.flash.error', :default => 'User Role not updated.')
+        @right_groups = Right.all(:order => 'controller_name, action_name').group_by { |p| p.controller_name }.to_a
+        format.html { render :action => 'edit' }
         format.xml  { render :xml => @role.errors, :status => :unprocessable_entity }
       end
     end
@@ -71,7 +71,7 @@ class RolesController < ApplicationController
   protected
 
   def fetch_right_groups
-    @right_groups = Right.all(:order => "controller_name, action_name").group_by{ |p| p.controller_name }.to_a
+    @right_groups = Right.all(:order => 'controller_name, action_name').group_by{ |p| p.controller_name }.to_a
   end
 
 end

@@ -2,10 +2,11 @@
 
 #page.roles
   - shadowbox 'page_content', :class => 'roles show' do
+    = user_feedback
     .title_actions
-      = link_to t('roles.show.edit'), edit_role_url(@role)
+      = link_to t('roles.show.edit', :default => 'Edit'), edit_role_url(@role)
       &nbsp;|&nbsp;
-      = link_to t('roles.show.back'), roles_url
+      = link_to t('roles.show.back', :default => 'Cancel'), roles_url
     %p= t('.intro', :default => 'Rights granted to this User Role', :name => @role.name)
     %table{ :class => 'roles' }
       - @right_groups.in_groups_of(5) do |group|
